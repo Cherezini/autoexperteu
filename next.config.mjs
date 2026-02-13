@@ -12,6 +12,11 @@ const nextConfig = {
         source: '/:locale(ru|es|en)/fao',
         destination: '/:locale/faq',
         permanent: true
+      },
+      {
+        source: '/:locale(ru|es|en)/fao/:path*',
+        destination: '/:locale/faq/:path*',
+        permanent: true
       }
     ];
   }

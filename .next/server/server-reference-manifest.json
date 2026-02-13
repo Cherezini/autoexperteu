@@ -1,0 +1,22 @@
+{
+  "node": {
+    "469f2dbfbf2ba2ab666e5676e1c49f7d7e90a8a1": {
+      "workers": {
+        "app/[locale]/registro/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fdoncherezini%2Fdev%2Fautoexpert%2Fapp%2F%5Blocale%5D%2Fregistro%2Fpage.tsx%22%2C%5B%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/[locale]/registro/page": "rsc"
+      }
+    },
+    "81b8895255183f483a87ca885cf338d4366faa4a": {
+      "workers": {
+        "app/[locale]/contacto/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fdoncherezini%2Fdev%2Fautoexpert%2Fapp%2F%5Blocale%5D%2Fcontacto%2Fpage.tsx%22%2C%5B%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/[locale]/contacto/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "03AYq+1bqJCrKp4Hr7BAHFujbAnHaoU9qCV8IhHjWmo="
+}

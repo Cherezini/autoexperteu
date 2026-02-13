@@ -1,0 +1,24 @@
+{
+  "Metadata": {
+    "homeTitle": "CLAN AUTO — Buy and sell a car in Spain (Alicante)",
+    "homeDescription": "Car sourcing, inspected used cars, in-house diagnostics, and car change options in Alicante."
+  },
+  "Home": {
+    "h1": "Buy and sell a car in Spain with diagnostics and car change in Alicante",
+    "h2": "Car sourcing, inspected used cars, and trade-in style car change with our own workshop",
+    "ctaBuy": "Buy a car",
+    "ctaSell": "Sell my car",
+    "ctaTrade": "Change my car",
+    "introTitle": "CLAN AUTO in Spain",
+    "introText": "CLAN AUTO provides car buying support in Spain, helps sell used cars, and offers car change options using your current vehicle. We work with inspected cars and perform diagnostics and pre-purchase checks in our own workshop in Alicante.",
+    "scenariosTitle": "What would you like to do with your car?",
+    "buyTitle": "Buy a car",
+    "buyText": "Request-based sourcing and pre-purchase inspection.",
+    "sellTitle": "Sell a car",
+    "sellText": "Assistance with selling and paperwork.",
+    "tradeTitle": "Change a car",
+    "tradeText": "Sell your current car and choose another with diagnostics.",
+    "geo": "📍 Based in Alicante, working with clients across Spain.",
+    "finalTitle": "Ready to buy, sell, or change a car in Spain?"
+  }
+}

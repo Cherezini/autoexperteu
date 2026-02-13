@@ -509,7 +509,7 @@ II. Підготовка, подання та повний супровід в �
         <AccordionProvider>
           <ControlledAccordions
             scopeId="registro"
-            summaryAlign="start"
+            summaryAlign="left"
             items={items}
           />
         </AccordionProvider>

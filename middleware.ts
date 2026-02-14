@@ -7,13 +7,15 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // ВАЖНО: отдаем как есть, чтобы Next отдал правильный metadata/route
+  // ВАЖНО: отдаем sitemap.xml и robots.txt напрямую
   if (pathname === "/sitemap.xml" || pathname === "/robots.txt") {
     return NextResponse.next();
   }
 
-  // Пропускаем статические файлы (любые запросы с точкой)
-  // и служебные префиксы
+  // Пропускаем:
+  // - API
+  // - служебные папки
+  // - любые файлы с точкой (статические ресурсы)
   if (
     pathname.startsWith("/api") ||
     pathname.startsWith("/_next") ||
@@ -27,5 +29,7 @@ export default function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel).*)"],
+  matcher: [
+    "/((?!api|_next|_vercel|.*\\..*).*)",
+  ],
 };

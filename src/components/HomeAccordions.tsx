@@ -210,9 +210,9 @@ function DrivingIcon({ open }: { open: boolean }) {
         ].join(" ")}
       >
         <img
-          src="/faq-icon.svg"
+          src="/sport.png"
           alt=""
-          className="h-10 w-10 object-contain drop-shadow"
+          className="h-28 w-auto object-contain drop-shadow"
           draggable={false}
         />
       </span>

@@ -239,7 +239,7 @@ const ClanAutoSearchRU = () => {
           </div>
           <div style={groupStyle}>
             <label style={labelStyle}>
-              NIE / DNI / Паспорт <span style={{ color: 'red' }}>*</span>
+              NIE / DNI / <span style={{ color: '#6b7280', fontWeight: 400 }}>(только для антиспама)</span> <span style={{ color: 'red' }}>*</span>
             </label>
             <input
               type="text"

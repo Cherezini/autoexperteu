@@ -171,7 +171,7 @@ function copy(locale: Locale) {
       "Доступ к закрытым европейским B2B-аукционам и дилерским сетям позволяет нам находить эксклюзивные варианты, недоступные частным покупателям.",
       "Ваш результат — легально зарегистрированный на Ваше имя  в  DGT автомобиль, с прозрачной историей,  реальным пробегом, без залогов и ограничени, отпимизированными  налогами,  без рисков и лишней бюрократии.",
     ],
-    needTitle: "Кому нужен подбор авто в Испании и Германии",
+    needTitle: "Кому нужен подбор авто в Испании, Германии",
     needList: [
       "Тем, кто покупает автомобиль в Испании впервые и хочет избежать ошибок и лишних расходов.",
       "Нерезидентам и тем, кто оформляет авто на себя или на семью и хочет корректную регистрацию в DGT.",
@@ -220,7 +220,8 @@ function DrivingIcon({ open }: { open: boolean }) {
   return (
     <span className="lg:absolute lg:left-5 lg:top-1/2 lg:-translate-y-1/2 relative mt-2 block pointer-events-none">
       <span className={["inline-block will-change-transform", "translate-x-0", "drive-car", open ? "translate-x-2" : ""].join(" ")}>
-        <img src="/faq-icon.svg" alt="" className="h-10 w-10 object-contain drop-shadow" draggable={false} />
+        <img src="/vip_car.png" alt="" className="h-20 w-auto object-contain drop-shadow"
+ draggable={false} />
       </span>
     </span>
   );
@@ -241,9 +242,9 @@ function DropdownListGroup({
         <style jsx global>{`
           @keyframes drive {
             0% { transform: translateX(0); }
-            70% { transform: translateX(92px); }
-            85% { transform: translateX(86px); }
-            100% { transform: translateX(89px); }
+            70% { transform: translateX(70px); }
+            85% { transform: translateX(64px); }
+            100% { transform: translateX(67px); }
           }
           .group:hover .drive-car { animation: drive 650ms ease-in-out both; }
         `}</style>
@@ -292,7 +293,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const faqHref = `/${locale}/fao`;
   const registoHref = `/${locale}/registo`;
 
-  const heroBtnSrc = locale === "ru" ? "/RUS_glav.png" : locale === "es" ? "/esp_glannay_1.png" : "/eng_glavnay.png";
+  const heroBtnSrc = locale === "ru" ? "/rus_glav.png" : locale === "es" ? "/esp_glannay_1.png" : "/eng_glavnay.png";
   const availableSlots = new Date().getDate() > 25 ? 1 : new Date().getDate() > 18 ? 2 : new Date().getDate() > 10 ? 4 : 7;
 
   return (
@@ -390,13 +391,13 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         <div className="w-full max-w-3xl">
           <div className="rounded-2xl border bg-white p-5">
             <div className="flex items-center justify-center gap-3">
-              <img src="/icons/Attencion.png" alt="" className="h-10 w-10 object-contain drop-shadow shrink-0" />
+              <img src="/icons/attencion.png" alt="" className="h-10 w-10 object-contain drop-shadow shrink-0" />
               <h2 className="text-lg font-semibold text-center">{C.questionsTitle}</h2>
             </div>
             <p className="mt-4 whitespace-pre-line" style={{ textAlign: "justify" }}>{C.questionsText}</p>
             <div className="mt-6 flex justify-center">
               <NextLink href={faqHref} className="inline-flex items-center justify-center">
-                <img src={locale === "ru" ? "/icons/faq_rus.png" : locale === "es" ? "/icons/ESP_FAQ.png" : "/icons/ENG_FAQ.png"} alt={C.faqBtn} className="h-auto w-full max-w-[320px] drop-shadow" draggable={false} />
+                <img src={locale === "ru" ? "/icons/faq_rus.png" : locale === "es" ? "/icons/esp_faq.png" : "/icons/eng_faq.png"} alt={C.faqBtn} className="h-auto w-full max-w-[320px] drop-shadow" draggable={false} />
               </NextLink>
             </div>
           </div>

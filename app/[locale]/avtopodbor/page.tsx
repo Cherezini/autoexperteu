@@ -201,7 +201,7 @@ function InnerItem({ it, name }: { it: Step; name: string }) {
         ].join(" ")}
       >
         <span className="order-last sm:order-first flex items-center justify-center w-full sm:w-auto mt-2 sm:mt-0">
-          <img src="/icon-doc.png" alt="" className="h-16 w-16 shrink-0" />
+          <img src="/icon-doc.png" alt="" className="h-20 w-20 shrink-0" />
         </span>
         <span className="flex-1">{it.t}</span>
         <span className="sm:static absolute right-5 top-1/2 sm:translate-y-0 -translate-y-1/2 transition-transform duration-300 group-open:rotate-180">
@@ -229,10 +229,10 @@ export default function CarSourcingPage({ params }: { params: { locale: string }
   const C = copy(locale);
   const bannerBtnIcon =
     locale === "en"
-      ? "/icons/EN-av.png"
+      ? "/icons/en-av.png"
       : locale === "es"
         ? "/icons/es_av.png"
-        : "/icons/RU_av.png";
+        : "/icons/ru_av.png";
 
   const availableSlots = new Date().getDate() > 25 ? 1 : new Date().getDate() > 18 ? 2 : new Date().getDate() > 10 ? 4 : 7;
 

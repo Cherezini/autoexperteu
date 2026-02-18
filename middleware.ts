@@ -25,6 +25,11 @@ export default function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
+  // ❗ Корень сайта: НЕ редиректим, а делаем rewrite на /ru
+  if (pathname === "/") {
+    return NextResponse.rewrite(new URL("/ru", req.url));
+  }
+
   return intlMiddleware(req);
 }
 

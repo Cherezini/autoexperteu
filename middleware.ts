@@ -27,14 +27,14 @@ export default function middleware(req: NextRequest) {
 
   // ❗ Корень сайта: НЕ редиректим, а делаем rewrite на /ru
   if (pathname === "/") {
-    return NextResponse.rewrite(new URL("/ru", req.url));
+    const url = req.nextUrl.clone();
+    url.pathname = "/ru";
+    return NextResponse.rewrite(url);
   }
 
   return intlMiddleware(req);
 }
 
 export const config = {
-  matcher: [
-    "/((?!api|_next|_vercel|.*\\..*).*)",
-  ],
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };

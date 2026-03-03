@@ -198,21 +198,14 @@ function Chevron({ open }: { open: boolean }) {
  * Возвращаем анимацию как была: hover на группе -> CSS animation.
  * +20px к проезду.
  */
-function DrivingIcon({ open }: { open: boolean }) {
+function DrivingIcon() {
   return (
-    <span className="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
-      <span
-        className={[
-          "inline-block will-change-transform",
-          "translate-x-0",
-          "drive-car", // <-- ВАЖНО: этот класс нужен для CSS hover-анимации
-          open ? "translate-x-2" : "",
-        ].join(" ")}
-      >
+    <span className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
+      <span className="inline-block will-change-transform drive-car">
         <img
           src="/sport.png"
           alt=""
-          className="h-28 w-auto object-contain drop-shadow"
+          className="h-20 sm:h-24 lg:h-28 w-auto object-contain drop-shadow"
           draggable={false}
         />
       </span>
@@ -273,21 +266,11 @@ export function HomeAccordionSection({
     <section className="mt-10 flex justify-center">
       <style jsx global>{`
         @keyframes drive {
-          0% {
-            transform: translateX(0);
-          }
-          70% {
-            transform: translateX(92px); /* было 4.5rem (~72px) -> +20px */
-          }
-          85% {
-            transform: translateX(86px); /* было ~65.6px -> +20px */
-          }
-          100% {
-            transform: translateX(89px); /* было ~68.8px -> +20px */
-          }
+          0%   { transform: translateX(0); }
+          70%  { transform: translateX(92px); }
+          85%  { transform: translateX(86px); }
+          100% { transform: translateX(89px); }
         }
-
-        /* ВОТ ЭТО возвращает hover-анимацию (без Tailwind-конфига) */
         .group:hover .drive-car {
           animation: drive 650ms ease-in-out both;
         }
@@ -295,7 +278,7 @@ export function HomeAccordionSection({
 
       <div className="w-full max-w-3xl">
         {/* HEADER */}
-        <div className="rounded-2xl border bg-white overflow-hidden">
+        <div className="rounded-2xl border bg-white overflow-hidden shadow-[0_8px_24px_rgba(11,59,115,0.12)] hover:shadow-[0_12px_32px_rgba(11,59,115,0.18)] transition-shadow duration-200">
           <button
             type="button"
             onClick={toggleSection}
@@ -307,9 +290,9 @@ export function HomeAccordionSection({
             ].join(" ")}
           >
             {/* Едущая машинка слева — единственная иконка в заголовке */}
-            <DrivingIcon open={sectionOpen} />
+            <DrivingIcon />
 
-            <span className="text-lg text-center">{title}</span>
+            <span className="text-lg sm:text-lg lg:text-lg text-center pl-14 sm:pl-16 pr-8 font-semibold">{title}</span>
 
             {/* наш chevron справа (без “уёбищной” системной стрелки) */}
             <span className="absolute right-5 top-1/2 -translate-y-1/2 text-black/70">

@@ -19,7 +19,7 @@ function copy(locale: string) {
       sections: [
         {
           title: "Car Sourcing & Purchase",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "Can I buy a car in Spain if I am not a resident?", d: "Yes, Spanish law does not restrict foreigners from owning property. To complete the transaction, a valid passport and a NIE (Foreigner Identification Number) are sufficient. However, for legal registration and road tax, you will need a Spanish address (rental agreement or property title)." },
             { t: "How much does car sourcing cost and what's included?", d: "Our 'Turnkey Car Sourcing' service has a fixed fee of €895. This is not just 'searching links' but the work of at least two managers: one monitors the market and selects options, while the second conducts deep negotiations, verifies legal purity, and coordinates the entire deal. We invest dozens of hours to save you thousands of euros and prevent future problems." },
@@ -30,7 +30,7 @@ function copy(locale: string) {
         },
         {
           title: "Registration, Import & Taxes",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "How is the registration tax (IEDMT) calculated?", d: "In Spain, this tax is directly linked to CO2 emissions. Rates vary from 0% (for low-emission cars) up to 14.75% for powerful SUVs. However, if you are moving to Spain for residence and import your car within 60 days of getting residency, you may receive a 100% exemption under the 'Cambio de Residencia' rule. We calculate these amounts professionally before purchase." },
             { t: "How do you check the car for liens (Embargos) and debts?", d: "We never take the seller's word for it. Before every deal, we request an extended 'Informe de Tráfico' directly from the DGT database. This document acts as an X-ray, showing ownership history, liens, tax debts, or any administrative blocks." },
@@ -39,7 +39,7 @@ function copy(locale: string) {
         },
         {
           title: "Autoexpert EU Service & New Laws",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "In which regions of Spain do you provide services?", d: "We offer Car Sourcing services for clients in any region of Spain—we find the best cars wherever they are. However, for Registration and administrative support, we focus on residents of the Costa Blanca (Alicante province) to ensure our personal presence at local offices." },
             { t: "Do you provide delivery if the car is bought in Germany?", d: "Absolutely. We organize safe logistics via professional car carriers or individual drivers under a separate contract. The vehicle is fully insured during transit, and you receive photo reports at every stage of the journey." },
@@ -49,7 +49,7 @@ function copy(locale: string) {
         },
         {
           title: "Insurance, Digitalization & Safety 2026",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "Why has insurance in Spain become more expensive in 2026 and how to save?", d: "Average premiums increased by 12-25% in 2026 due to new taxes and inflation. We help select the best policies (Terceros Ampliado or Todo Riesgo) via expat-friendly brokers, often saving up to €300 per year compared to direct quotes from major banks that don't consider foreign driving history." },
             { t: "Is the V16 beacon mandatory across all of Spain?", d: "Yes, as of Jan 1, 2026, triangles are prohibited on all high-speed roads. Your car must have a certified V16 beacon with geolocation that automatically sends coordinates to DGT 3.0. We ensure all cars we source meet these safety standards so you avoid fines of up to €200." },
@@ -58,7 +58,7 @@ function copy(locale: string) {
         },
         {
           title: "Electric Vehicles, Hybrids & Eco-zones (ZBE) 2026",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "What are ZBE zones and how to get an environmental sticker?", d: "In 2026, all Spanish cities over 50,000 residents limit high-emission entry. To travel legally, you need a sticker (0, Eco, C, or B) from the post office (Correos). We verify access for your future car to avoid €200 fines for entering restricted zones without the proper environmental badge." },
             { t: "How does the new Plan Auto+ subsidy program work?", d: "MOVES III is replaced by Plan Auto+. The main 2026 benefit is the discount (up to €7,000 with scrap) applied instantly at purchase at the dealership, rather than being paid a year later. We handle the eligibility check for you to ensure you get the maximum possible benefit without the usual bureaucracy." }
@@ -66,7 +66,7 @@ function copy(locale: string) {
         },
         {
           title: "Information for Ukrainian Citizens",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "Do I need to change my Ukrainian license to a Spanish one?", d: "Under current EU rules for 2026, Ukrainian licenses remain valid in Spain for the entire duration of your temporary protection status (currently until March 2027). You are not required to change them, but you can voluntarily exchange them (Canje) without exams for categories A and B." },
             { t: "How long can I legally drive on Ukrainian plates in Spain?", d: "The general rule is 6 months after obtaining residence. However, for those under temporary protection, rules are more flexible. To avoid issues with police and insurance, we recommend starting the legalization process if you plan to stay for more than half a year." },
@@ -89,7 +89,7 @@ function copy(locale: string) {
       sections: [
         {
           title: "Selección и Compra de Vehículos",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "¿Puedo comprar un coche en España si no soy residente?", d: "Sí, la ley española no restringe la propiedad a extranjeros. Para realizar la compra, un pasaporte válido и un número NIE son suficientes. Sin embargo, necesitará una dirección en España (contrato de alquiler o escritura) para el registro en la oficina de impuestos и la DGT." },
             { t: "¿Cuánto cuesta el servicio de selección?", d: "Nuestro servicio tiene una tarifa fija de 895 €. No es solo 'buscar enlaces', sino el trabajo de al menos dos gestores: uno monitorea el mercado и selecciona opciones, mientras el segundo realiza negociaciones profundas, verifica la pureza legal и coordina toda la operación." },
@@ -100,7 +100,7 @@ function copy(locale: string) {
         },
         {
           title: "Matriculación, Importación и Impuestos",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "¿Cómo se calcula el impuesto de matriculación (IEDMT)?", d: "Este impuesto depende directamente de las emisiones de CO2. Las tasas varían del 0% al 14,75%. Sin embargo, si se muda por residencia, puede obtener una exención del 100% mediante el 'Cambio de Residencia' dentro de los 60 días posteriores a la obtención del TIE." },
             { t: "¿Cómo comprueban si el coche tiene cargas (Embargos)?", d: "Nunca confiamos solo en la palabra del vendedor. Antes de cada trato, solicitamos un 'Informe de Tráfico' detallado directamente de la base de datos de la DGT. Este documento muestra el historial de propiedad, embargos, deudas de impuestos o bloques administrativos." },
@@ -109,7 +109,7 @@ function copy(locale: string) {
         },
         {
           title: "Servicio Autoexpert EU и Nuevas Leyes",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "¿En qué regiones de España trabajan?", d: "Realizamos selección de coches en toda España. Sin embargo, para la matriculación и el soporte administrativo completo, nos centramos en los residentes de la Costa Blanca (Alicante) para garantizar nuestra presencia física en las oficinas locales." },
             { t: "¿Ofrecen transporte si el coche se compra en Alemania?", d: "Absolutamente. Organizamos la logística segura mediante portavehículos profesionales o conductores individuales bajo contrato. El vehículo está totalmente asegurado durante el tránsito y recibirá informes fotográficos en cada etapa." },
@@ -119,7 +119,7 @@ function copy(locale: string) {
         },
         {
           title: "Seguros, Digitalización y Seguridad 2026",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "¿Por qué ha subido el seguro en 2026 и cómo ahorrar?", d: "Las primas han subido un 12-25% en 2026 debido a nuevos impuestos и inflación. Ayudamos a elegir las mejores pólizas (Terceros Ampliado o Todo Riesgo) a través de corredores especializados en expatriados, ahorrando hasta 300 € anuales." },
             { t: "¿Es obligatorio el dispositivo V16 en toda España?", d: "Sí, desde el 1 de enero de 2026 los triángulos están prohibidos en todas las carreteras de alta velocidad. Su coche debe tener una baliza V16 certificada con geolocalización. Verificamos este equipo para evitar multas de 200 euros." },
@@ -128,7 +128,7 @@ function copy(locale: string) {
         },
         {
           title: "Vehículos Eléctricos, Híbridos y Zonas ZBE 2026",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "¿Qué son las zonas ZBE?", d: "Restricciones en ciudades de +50.000 hab. Necesita etiqueta 0, Eco, C o B de Correos. Comprobamos el acceso de su futuro coche para evitar multas de 200 € por entrar en zonas restringidas sin el distintivo ambiental adecuado." },
             { t: "¿Cómo funciona el Plan Auto+?", d: "Sustituye al MOVES III. El beneficio principal en 2026 es que el descuento (hasta 7.000 € con achatarramiento) se aplica directamente en el concesionario al comprar, en lugar de pagarse un año después. Gestionamos la verificación." }
@@ -136,7 +136,7 @@ function copy(locale: string) {
         },
         {
           title: "Información para Ciudadanos Ucranianos",
-          icon: "/icons/faq-car.svg",
+          icon: "/icons/loc.png",
           items: [
             { t: "¿Debo canjear mi carnet de conducir ucraniano?", d: "Bajo la protección temporal en 2026, los carnets ucranianos son válidos en España hasta marzo de 2027. No es obligatorio canjearlos, pero puede hacerlo voluntariamente sin exámenes para las categorías A и B si planea quedarse a largo plazo." },
             { t: "¿Cuánto tiempo puedo conducir con matrícula ucraniana?", d: "La regla general es de 6 meses tras obtener la residencia. Recomendamos iniciar la legalización si planea quedarse más de medio año para evitar problemas con la policía и el seguro." },
@@ -159,7 +159,7 @@ function copy(locale: string) {
     sections: [
       {
         title: "Выбор и покупка автомобиля в Испании",
-        icon: "/icons/faq-car.svg",
+        icon: "/icons/loc.png",
         items: [
           { t: "Можно ли купить автомобиль в Испании, если я не являюсь резидентом?", d: "Да, испанское законодательство не ограничивает иностранцев в праве собственности. Для покупки вам не нужна резиденция — достаточно иметь действующий загранпаспорт и номер NIE (идентификационный номер иностранца). Однако помните: покупка — это лишь первый шаг. Для легальной эксплуатации авто вам потребуется адрес в Испании (договор аренды или эскритура) для регистрации в налоговой и Трафико." },
           { t: "Сколько стоят услуги автоподбора и что конкретно я оплачиваю?", d: "Стоимость услуги «Автоподбор под ключ» фиксирована — 895 €. Это не просто «поиск ссылок», а работа как минимум двух квалифицированных менеджеров. Один занимается глубоким мониторингом рынка и отбором вариантов, второй — ведет сложные переговоры с продавцами, проверяет юридическую чистоту и координирует сделку. Мы инвестируем десятки часов работы, чтобы вы сэкономили тысячи евро на покупке и избежали проблем в будущем." },
@@ -170,7 +170,7 @@ function copy(locale: string) {
       },
       {
         title: "Регистрация, Импорт и Налоги",
-        icon: "/icons/faq-car.svg",
+        icon: "/icons/loc.png",
         items: [
           { t: "Как рассчитывается налог на регистрацию (IEDMT) и можно ли его избежать?", d: "Этот налог напрямую зависит от выбросов CO2. Ставки варьируются от 0% до 14.75%. Однако, если вы переезжаете в Испанию на ПМЖ и ввозите свой автомобиль в течение 60 дней после получения резиденции, вы можете получить 100% освобождение от этого налога по льготе 'Cambio de Residencia'. Мы профессионально рассчитываем эти суммы еще до покупки." },
           { t: "Как проверить историю подержанного авто на залоги (Embargos) и штрафы?", d: "Мы никогда не верим на слово продавцам. Перед сделкой мы заказываем расширенный отчет Informe de Tráfico напрямую из базы DGT. Этот документ — «рентген» автомобиля. Он показывает реальное количество владельцев, историю техосмотров, наличие арестов (embargos), залогов или неоплаченных муниципальных налогов." },
@@ -179,7 +179,7 @@ function copy(locale: string) {
       },
       {
         title: "Сервис Autoexpert EU и Законы 2026",
-        icon: "/icons/faq-car.svg",
+        icon: "/icons/loc.png",
         items: [
           { t: "В каких регионах Испании вы предоставляете услуги?", d: "Наш сервис имеет четкую специализацию. Автоподбор мы осуществляем для клиентов в любом регионе Испании — мы находим лучшие машины там, где они есть. Услуги по регистрации и полное административное сопровождение мы предоставляем для жителей Коста-Бланка (Аликанте). Это позволяет нам гарантировать личное присутствие и оперативное решение вопросов в Трафико." },
           { t: "Осуществляете ли вы доставку авто, если оно куплено в Германии?", d: "Безусловно. Мы организуем безопасную логистику вашего автомобиля до вашего порога в Испании. Эта услуга оформляется отдельным договором. Мы работаем с проверенными перевозчиками (автовозами), а также предоставляем услуги индивидуального перегона. В процессе доставки автомобиль застрахован." },
@@ -189,7 +189,7 @@ function copy(locale: string) {
       },
       {
         title: "Страхование, Цифровое управление и Безопасность 2026",
-        icon: "/icons/faq-car.svg",
+        icon: "/icons/loc.png",
         items: [
           { t: "Почему страховка в Испании так подорожала в 2026 году и как не переплатить?", d: "Средняя стоимость полиса в 2026 году выросла на 12-25% из-за новых налогов и инфляции. Мы помогаем подобрать оптимальный тип страхования (Terceros Ampliado или Todo Riesgo) через специализированных брокеров для экспатов, что позволяет сэкономить до 300 евро в год по сравнению с прямым обращением в крупные страховые компании." },
           { t: "Обязательно ли иметь маячок V16 с геолокацией прямо сейчас?", d: "Да, с 1 января 2026 года использование треугольников на скоростных трассах официально запрещено. Ваш автомобиль должен быть укомплектован сертифицированным маячком V16, который автоматически передает координаты вашей аварии в систему DGT 3.0 в случае поломки. Мы проверяем наличие этого оборудования при покупке авто, чтобы вы не получили штраф в первый же день." },
@@ -198,7 +198,7 @@ function copy(locale: string) {
       },
       {
         title: "Электромобили, Гибриды и Эко-зоны (ZBE) 2026",
-        icon: "/icons/faq-car.svg",
+        icon: "/icons/loc.png",
         items: [
           { t: "Что такое зоны ZBE и как получить экологическую наклейку (Distintivo Ambiental)?", d: "В 2026 году все города Испании с населением более 50 000 человек обязаны ограничить въезд для автомобилей с высоким уровнем выбросов. Чтобы легально передвигаться, вам необходимо получить наклейку (0, Eco, C или B) в почтовом отделении (Correos). Мы помогаем проверить, какой доступ будет у вашего будущего автомобиля, чтобы вы не столкнулись со штрафами до 200 евро за въезд в закрытые зоны." },
           { t: "Как работает новая программа субсидий Plan Auto+ в 2026 году?", d: "На смену программе MOVES III пришел новый план Auto+. Главное преимущество 2026 года — скидка (до 7 000 евро при утилизации старого авто) теперь применяется сразу в момент покупки в дилерском центре, а не выплачивается через год. Мы берем на себя проверку соответствия автомобиля условиям программы, чтобы вы получили максимальную выгоду без бюрократии." }
@@ -206,7 +206,7 @@ function copy(locale: string) {
       },
       {
         title: "Информация для граждан Украины (Временная защита)",
-        icon: "/icons/faq-car.svg",
+        icon: "/icons/loc.png",
         items: [
           { t: "Нужно ли менять украинские водительские права на испанские?", d: "В 2026 году украинские водительские удостоверения признаются действительными в Испании в течение всего срока действия статуса временной защиты (до марта 2027 года). Обязательного требования по замене нет, но вы можете добровольно обменять их по упрощенной процедуре (Canje) без экзаменов для категорий А и B." },
           { t: "Сколько времени можно законно ездить в Испании на машине с украинскими номерами?", d: "Общее правило — 6 месяцев после получения резиденции. Однако для украинцев под защитой правила гибче. Чтобы избежать проблем с полицией и страховкой, мы рекомендуем начинать процесс легализации авто, если вы планируете находиться в Испании более полугода." },
@@ -232,7 +232,7 @@ function InnerItem({ it }: { it: Step }) {
   return (
     <details className="group rounded-xl border bg-white">
       <summary className="flex items-center gap-3 px-5 py-4 cursor-pointer select-none font-semibold [&::-webkit-details-marker]:hidden">
-        <img src="/location.svg" alt="" className="h-10 w-10 shrink-0" />
+        <img src="/icons/faq-car.png" alt="" className="h-20 w-20 shrink-0" />
         <span className="flex-1 text-left">{it.t}</span>
         <span className="text-[#0B3B73] transition-transform duration-300 group-open:rotate-180">
           <Chevron />

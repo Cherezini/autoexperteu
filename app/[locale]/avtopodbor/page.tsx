@@ -246,14 +246,14 @@ export default function CarSourcingPage({ params }: { params: { locale: string }
   return (
     <main className="mx-auto w-full max-w-5xl px-4 mt-[8px] pb-8">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden rounded-3xl border -mt-[15px] h-[390px]">
+      <section className="relative overflow-hidden rounded-3xl border -mt-[15px] lg:h-[390px]">
         <img
           src="/media/images/avtopodbor.jpg"
           alt=""
-          className="h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center translate-y-[61px]">
+        <div className="relative z-10 flex flex-col items-center justify-center px-6 py-8 text-center -translate-y-[4px] lg:absolute lg:inset-0 lg:py-0 lg:translate-y-[61px]">
           <h1 className="text-balance text-2xl font-bold text-white md:text-3xl [text-shadow:_2px_2px_4px_rgba(0,0,0,0.8)]">
             {C.heroText}
           </h1>
@@ -261,7 +261,7 @@ export default function CarSourcingPage({ params }: { params: { locale: string }
           <p className="mt-2 text-white text-lg md:text-xl font-medium opacity-90 [text-shadow:_1px_1px_3px_rgba(0,0,0,0.8)] tracking-wide">
             {C.heroSub}
           </p>
-          <div className="mt-8 flex justify-center translate-y-[20px]">
+          <div className="mt-6 flex justify-center lg:mt-8 lg:translate-y-[20px]">
             <Link href={requestHref} className="inline-flex items-center justify-center relative overflow-hidden group transition-transform duration-300 hover:scale-105 active:scale-95">
               <img src={bannerBtnIcon} alt={C.btnOrder} className="h-[64px] w-auto relative z-10" />
               <div className="absolute top-0 -left-[150%] h-full w-[150%] bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-20 transition-transform duration-[1500ms] ease-in-out group-hover:translate-x-[250%]" />

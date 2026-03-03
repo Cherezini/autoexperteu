@@ -27,8 +27,6 @@ function copy(locale: Locale) {
 
   const now = new Date();
   const day = now.getDate();
-  const availableSlots = day > 25 ? 1 : day > 18 ? 2 : day > 10 ? 4 : 7;
-
   const monthNames: Record<Locale, string[]> = {
     ru: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
     en: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -39,11 +37,16 @@ function copy(locale: Locale) {
   if (locale === "en") {
     return {
       ...common,
-      urgencyTitle: `Boutique format with a limited number of clients`,
-      urgencyMonth: currentMonth,
-      urgencyText: "We focus on quality, not quantity. To ensure perfect technical checks and logistics.",
-      urgencyBtn: `Book a slot`,
-      urgencyRemaining: `Remaining`,
+      whatTitle: "What you get with AutoexpertEU",
+      whatItems: [
+        { icon: "🔍", title: "Free market analysis", desc: "We check the real availability of cars matching your request — before you pay anything." },
+        { icon: "✅", title: "Legal clean history", desc: "Full VIN check, accident history, liens (embargos), real mileage — before every bid." },
+        { icon: "🏛", title: "Turnkey registration in Spain", desc: "ITV technical inspection, DGT registration, Spanish plates — without a single visit to government offices." },
+        { icon: "🇪🇺", title: "No customs duties", desc: "Germany and Spain are EU members. Only local Spanish registration taxes apply — we calculate them upfront." },
+        { icon: "🚗", title: "Minimum 10 verified options", desc: "Within 30 days of signing the contract. Each with history, photos and full turnkey cost." },
+        { icon: "💬", title: "Support in your language", desc: "Russian and Ukrainian-speaking clients in Spain — clear support and full document control at every stage." },
+      ],
+      whatBtn: "Describe your ideal car",
       heroTitle: "Premium car sourcing and turnkey registration in Spain",
       heroText: [
         "Autoexpert EU helps you buy a car in Spain and choose and import a car from Germany or other European Union countries. We source with minimal risk: we offer options within your budget, verify the technical condition and history, rule out restrictions and liens (embargos), and support negotiations and purchase.\nIf you’re considering a car from Germany or other EU countries, we organise sourcing and checks, calculate the total cost, arrange delivery, and handle registration in Spain.",
@@ -99,11 +102,16 @@ function copy(locale: Locale) {
   if (locale === "es") {
     return {
       ...common,
-      urgencyTitle: `Formato Boutique con un número limitado de clientes`,
-      urgencyMonth: currentMonth,
-      urgencyText: "Apostamos por la calidad, no por la cantidad. Para asegurar una inspección técnica и logística perfectas.",
-      urgencyBtn: `Reservar un slot`,
-      urgencyRemaining: `Quedan`,
+      whatTitle: "¿Qué obtienes con AutoexpertEU?",
+      whatItems: [
+        { icon: "🔍", title: "Análisis gratuito del mercado", desc: "Comprobamos la disponibilidad real de coches según tu solicitud — antes de que pagues nada." },
+        { icon: "✅", title: "Historial legal verificado", desc: "Verificación completa por VIN, historial de accidentes, embargos, kilometraje real — antes de cada puja." },
+        { icon: "🏛", title: "Matriculación llave en mano en España", desc: "ITV, trámites en la DGT, matrículas españolas — sin una sola visita a ningún organismo oficial." },
+        { icon: "🇪🇺", title: "Sin aranceles aduaneros", desc: "Alemania y España son países de la UE. Solo se aplican los impuestos españoles de matriculación — los calculamos por adelantado." },
+        { icon: "🚗", title: "Mínimo 10 opciones verificadas", desc: "En 30 días desde la firma del contrato. Cada una con historial, fotos y coste total llave en mano." },
+        { icon: "💬", title: "Atención en tu idioma", desc: "Para clientes rusohablantes y ucranianos en España — acompañamiento claro y control total de documentos en cada etapa." },
+      ],
+      whatBtn: "Describa el coche que busca",
       heroTitle: "Selección de coches premium y matriculación completa en España",
       heroText: [
         "Autoexpert EU le ayuda a comprar un coche en España и a elegir e importar un coche desde Alemania u otros países de la Unión Europea. Seleccionamos sin riesgos: proponemos opciones según su presupuesto, verificamos el estado técnico и el historial, descartamos cargas и embargos, и le acompañamos en la negociación и la compra.\nSi está considerando un coche de Alemania u otros países de la UE, organizamos la selección и la verificación, calculamos el coste total, gestionamos la entrega и los trámites de matriculación en España.",
@@ -159,11 +167,16 @@ function copy(locale: Locale) {
   // RU
   return {
     ...common,
-    urgencyTitle: `Формат Бутик с ограниченным числом клиентов`,
-    urgencyMonth: currentMonth,
-    urgencyText: "Мы делаем ставку на качество, а не на поток. Чтобы обеспечить идеальную техническую проверку и логистику.",
-    urgencyBtn: `Забронировать слот`,
-    urgencyRemaining: `Осталось`,
+    whatTitle: "Что вы получаете с AutoexpertEU",
+    whatItems: [
+      { icon: "🔍", title: "Бесплатный анализ рынка", desc: "Проверяем реальную доступность авто под ваш запрос — до того, как вы что-либо заплатите." },
+      { icon: "✅", title: "Юридически чистая история", desc: "Полная проверка VIN, история ДТП, залоги (embargos), реальный пробег — перед каждой ставкой." },
+      { icon: "🏛", title: "Постановка на учёт в Испании под ключ", desc: "ITV (техосмотр), регистрация в DGT, испанские номера — без единого визита в госорганы." },
+      { icon: "🇪🇺", title: "Никаких таможенных пошлин", desc: "Германия и Испания — страны ЕС. Только местные испанские налоги при регистрации — рассчитываем заранее." },
+      { icon: "🚗", title: "Минимум 10 проверенных вариантов", desc: "За 30 дней с момента заключения договора. Каждый — с историей, фото и полной стоимостью под ключ." },
+      { icon: "💬", title: "Поддержка на вашем языке", desc: "Русскоязычным и украиноязычным клиентам в Испании — понятное сопровождение и контроль документов на каждом этапе." },
+    ],
+    whatBtn: "Опишите желаемый автомобиль",
     heroTitle: "Профессиональный автоподбор и полная регистрация авто в Испании",
     heroText: [
       "Autoexpert EU помогает помогает купить автомобиль в Испании, выбрать и пригнать автомобиль из Германии или других стран Европейского союза. Подбираем без рисков: предлагаем варианты под Ваш бюджет, проверяем техническое состояние и историю, исключаем ограничения и залоги (embargos), сопровождаем переговоры и покупку.\nЕсли вы рассматриваете авто из Германии или других стран ЕС — организуем подбор и проверку, просчитываем итоговую стоимость, оранизуем доставку и оформление постановки на учет в  Испании.",
@@ -252,7 +265,7 @@ function DropdownListGroup({
         {sections.map((sec) => {
           const isOpen = openId === sec.id;
           return (
-            <div key={sec.id} className="rounded-2xl border bg-white overflow-hidden">
+            <div key={sec.id} className="rounded-2xl border bg-white overflow-hidden shadow-[0_8px_24px_rgba(11,59,115,0.12)] hover:shadow-[0_12px_32px_rgba(11,59,115,0.18)] transition-shadow duration-200">
               <button type="button" onClick={() => onToggle(sec.id)} className="group relative w-full px-5 py-4 flex flex-col items-center lg:block">
                 <span className="relative z-10 block w-full text-center text-lg font-semibold lg:px-12">{sec.title}</span>
                 <DrivingIcon open={isOpen} />
@@ -294,8 +307,6 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const registoHref = `/${locale}/registo`;
 
   const heroBtnSrc = locale === "ru" ? "/rus_glav.png" : locale === "es" ? "/esp_glannay_1.png" : "/eng_glavnay.png";
-  const availableSlots = new Date().getDate() > 25 ? 1 : new Date().getDate() > 18 ? 2 : new Date().getDate() > 10 ? 4 : 7;
-
   return (
     <main className="mx-auto w-full max-w-5xl px-4 pt-2 pb-6">
       {/* HERO SECTION */}
@@ -323,42 +334,37 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         {C.heroText.slice(0, 2).map((p: string, i: number) => <p key={i}>{p}</p>)}
       </section>
 
-      {/* BOUTIQUE URGENCY BLOCK — ЗЕЛЕНОЕ LED ТАБЛО */}
+      {/* WHAT YOU GET BLOCK */}
       <section className="mt-8 flex justify-center">
-        <div className="w-full max-w-2xl rounded-2xl border-2 border-[#0B3B73] bg-[#f8fafc] p-4 sm:p-5 text-center shadow-lg relative overflow-hidden">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <h2 className="text-base sm:text-lg font-bold text-[#0B3B73] uppercase tracking-wider">{C.urgencyTitle}</h2>
-            <span className="bg-black text-[#B7FF5A] px-5 py-1.5 rounded-lg border border-white/10 inline-block relative font-mono text-lg shadow-md uppercase tracking-widest">
-                {C.urgencyMonth}
-                <div className="absolute left-0 top-1/2 w-full h-[1px] bg-white/20" />
-            </span>
+        <div className="w-full max-w-3xl rounded-3xl border-2 border-[#0B3B73]/20 bg-white shadow-[0_20px_60px_rgba(11,59,115,0.12)] overflow-hidden">
+          {/* Header */}
+          <div className="bg-[#0B3B73] px-6 py-4 text-center">
+            <h2 className="text-base sm:text-lg font-bold text-white tracking-wide uppercase">
+              {(C as any).whatTitle}
+            </h2>
           </div>
-          <div className="mt-4 overflow-hidden bg-[#111] py-2 rounded-lg border-b-2 border-black/20 shadow-inner relative">
-             <div className="animate-marquee whitespace-nowrap inline-block">
-                <span className="text-base font-bold text-[#B7FF5A] uppercase tracking-[0.25em] [text-shadow:_0_0_10px_rgba(183,255,90,0.6)] px-8 font-mono">
-                  {C.urgencyText}
-                </span>
-                <span className="text-base font-bold text-[#B7FF5A] uppercase tracking-[0.25em] [text-shadow:_0_0_10px_rgba(183,255,90,0.6)] px-8 font-mono">
-                  {C.urgencyText}
-                </span>
-             </div>
+          {/* Grid of items */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#0B3B73]/10">
+            {((C as any).whatItems as Array<{icon: string; title: string; desc: string}>).map((item, i) => (
+              <div key={i} className="bg-white px-5 py-4 flex gap-3 items-start hover:bg-[#f0f5ff] transition-colors duration-200">
+                <span className="text-2xl shrink-0 mt-0.5">{item.icon}</span>
+                <div>
+                  <p className="font-semibold text-[#0B3B73] text-sm sm:text-base leading-snug">{item.title}</p>
+                  <p className="mt-1 text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="mt-6 flex flex-col items-center">
-            <NextLink href={requestHref} className="group relative inline-flex items-center justify-center rounded-xl bg-[#0B3B73] px-10 py-3.5 text-lg font-black text-white shadow-[0_6px_0_rgba(0,0,0,0.2)] transition-all hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none overflow-hidden">
-              <span className="relative z-10 flex items-center gap-4">
-                <span className="uppercase tracking-tighter text-sm sm:text-base">{C.urgencyBtn} {C.urgencyRemaining}</span>
-                <span className="bg-black text-[#B7FF5A] px-4 py-1.5 rounded-md border border-white/10 inline-block relative font-mono text-xl shadow-md">
-                   {availableSlots}
-                   <div className="absolute left-0 top-1/2 w-full h-[1px] bg-white/20" />
-                </span>
-              </span>
-              <div className="absolute top-0 -left-[150%] h-full w-[150%] bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-20 transition-transform duration-[1500ms] ease-in-out group-hover:translate-x-[250%]" />
+          {/* CTA button */}
+          <div className="bg-[#f8fafc] px-6 py-5 text-center border-t border-[#0B3B73]/10">
+            <NextLink
+              href={requestHref}
+              className="group inline-flex items-center justify-center rounded-xl bg-[#0B3B73] px-10 py-4 text-base font-bold text-white shadow-[0_8px_0_rgba(0,0,0,0.25)] hover:brightness-110 active:translate-y-[2px] active:shadow-[0_4px_0_rgba(0,0,0,0.25)] transition-all relative overflow-hidden"
+            >
+              <span className="relative z-10">{(C as any).whatBtn}</span>
+              <div className="absolute top-0 -left-[150%] h-full w-[150%] bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-20 transition-transform duration-[1500ms] group-hover:translate-x-[250%]" />
             </NextLink>
           </div>
-          <style jsx>{`
-            @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-            .animate-marquee { display: inline-block; animation: marquee 20s linear infinite; }
-          `}</style>
         </div>
       </section>
 
@@ -378,7 +384,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
           @keyframes gradient-move { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
           .btn-gradient-animate { background: linear-gradient(270deg, #0B3B73, #1e5ca6, #0B3B73); background-size: 200% 200%; animation: gradient-move 3s ease infinite; }
         `}</style>
-        <div key={homeAccordionsResetSeed} onClickCapture={() => dropdownOpenId && setDropdownOpenId(null)} className="rounded-3xl bg-slate-100/70 backdrop-blur-[2px] shadow-[0_9px_22px_rgba(15,23,42,0.0125)] px-4 py-6 sm:px-6">
+        <div key={homeAccordionsResetSeed} onClickCapture={() => dropdownOpenId && setDropdownOpenId(null)} className="px-0 py-0">
           <HomeAccordionProvider>
             <HomeAccordionSection title={C.howTitle} miniLogo={C.miniLogo} items={C.howItems} />
             <HomeAccordionSection title={C.advantagesTitle} miniLogo={C.miniLogo} items={C.advItems} />

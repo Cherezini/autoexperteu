@@ -30,7 +30,7 @@ function copy(locale: Locale) {
   const monthNames: Record<Locale, string[]> = {
     ru: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
     en: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    es: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Декабрь"],
+    es: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
   };
   const currentMonth = monthNames[locale][now.getMonth()];
 
@@ -47,9 +47,9 @@ function copy(locale: Locale) {
         { icon: "💬", title: "Support in your language", desc: "Russian and Ukrainian-speaking clients in Spain — clear support and full document control at every stage." },
       ],
       whatBtn: "Describe your ideal car",
-      heroTitle: "Premium car sourcing and turnkey registration in Spain",
+      heroTitle: "Professional car sourcing and turnkey registration in Spain",
       heroText: [
-        "Autoexpert EU helps you buy a car in Spain and choose and import a car from Germany or other European Union countries. We source with minimal risk: we offer options within your budget, verify the technical condition and history, rule out restrictions and liens (embargos), and support negotiations and purchase.\nIf you’re considering a car from Germany or other EU countries, we organise sourcing and checks, calculate the total cost, arrange delivery, and handle registration in Spain.",
+        "Autoexpert EU helps you buy a car in Spain and choose and import a car from Germany or other European Union countries. We source with minimal risk: we offer options within your budget, verify the technical condition and history, rule out restrictions and liens (embargos), and support negotiations and purchase.\nIf you're considering a car from Germany or other EU countries, we organise sourcing and checks, calculate the total cost, arrange delivery, and handle registration in Spain.",
         "We select vehicles strictly based on your individual request, ensuring the best price-to-quality ratio and meeting all your technical priorities.",
         "Access to closed European B2B auctions and dealer networks allows us to find exclusive options unavailable to private buyers.",
         "Your result — a car legally registered in your name with the DGT, with a transparent history, verified mileage, free of liens and restrictions, optimized taxes, without risks and unnecessary bureaucracy.",
@@ -73,17 +73,16 @@ function copy(locale: Locale) {
       howTitle: "How we work",
       advantagesTitle: "Autoexpert EU advantages",
       questionsTitle: "Still have questions?",
-      questionsText: "We’ve collected answers to the most common questions about sourcing, checks, documents and timing.",
+      questionsText: "We've collected answers to the most common questions about sourcing, checks, documents and timing.",
       faqBtn: "Go to FAQ",
       startTitle: "Ready to start?",
-      startText1:
-        "Leave a request — we will assess your case for free and suggest a clear action plan for sourcing and buying in Spain, Germany, or other European Union countries.",
-      startText2: "We can also help if you need to register a vehicle with Spain’s DGT.",
+      startText1: "Leave a request — we will assess your case for free and suggest a clear action plan for sourcing and buying in Spain, Germany, or other European Union countries.",
+      startText2: "We can also help if you need to register a vehicle with Spain's DGT.",
       startBtn1: "FILL IN CAR SEARCH FORM",
       startBtn2: "Register a car in Spain",
       howItems: [
         { t: "Application and free preliminary analysis", d: "You leave a request with the model, budget and preferences. We analyze the market for free and confirm the request is realistic in price and trim level." },
-        { t: "Request adjustment in the client's favor", d: "If the parameters don’t match the market, we suggest adjustments: budget, trim level, alternative models. Often we find options better than expected." },
+        { t: "Request adjustment in the client's favor", d: "If the parameters don't match the market, we suggest adjustments: budget, trim level, alternative models. Often we find options better than expected." },
         { t: "Contract and start of sourcing", d: "We fix the terms in the contract and start sourcing. We offer at least 10 verified car options and explain the pros and risks of each." },
         { t: "Comprehensive inspection", d: "We carry out technical diagnostics and a legal check: mileage, service history, accidents, restrictions and liens (embargos)." },
         { t: "Purchase, delivery and registration", d: "Depending on the platform where the car is purchased, we assist with the purchase and signing the contract. We organize safe logistics and registration for Spanish plates. We support the process until the result — you receive Spanish plates for the car." },
@@ -94,6 +93,13 @@ function copy(locale: Locale) {
         { t: "Tax optimization and cost calculation", d: "We professionally calculate the registration tax (IEDMT) and find legal ways to reduce the tax burden." },
         { t: "Guaranteed DGT Environmental Label (ZBE)", d: "We select cars of the correct class and handle the DGT sticker for unrestricted city access." },
         { t: "Legal purity and payment protection", d: "We check the car for the absence of liens (embargos) and guarantee transaction transparency." },
+      ],
+      readAlso: "Read also:",
+      readAlsoLinks: [
+        { href: "avto-iz-germanii", label: "Cars from Germany to Spain" },
+        { href: "avto-iz-germanii/skolko-stoit", label: "How much does a car from Germany cost?" },
+        { href: "avtopodbor", label: "Car sourcing turnkey" },
+        { href: "faq", label: "Frequently asked questions" },
       ],
       links: { avtopodbor: "FILL IN CAR SEARCH FORM", registro: "Register a car in Spain." },
     };
@@ -112,55 +118,61 @@ function copy(locale: Locale) {
         { icon: "💬", title: "Atención en tu idioma", desc: "Para clientes rusohablantes y ucranianos en España — acompañamiento claro y control total de documentos en cada etapa." },
       ],
       whatBtn: "Describa el coche que busca",
-      heroTitle: "Selección de coches premium y matriculación completa en España",
+      heroTitle: "Selección de coches y matriculación completa llave en mano en España",
       heroText: [
-        "Autoexpert EU le ayuda a comprar un coche en España и a elegir e importar un coche desde Alemania u otros países de la Unión Europea. Seleccionamos sin riesgos: proponemos opciones según su presupuesto, verificamos el estado técnico и el historial, descartamos cargas и embargos, и le acompañamos en la negociación и la compra.\nSi está considerando un coche de Alemania u otros países de la UE, organizamos la selección и la verificación, calculamos el coste total, gestionamos la entrega и los trámites de matriculación en España.",
-        "Seleccionamos vehículos estrictamente bajo su solicitud individual, optimizando su presupuesto и encontrando las mejores ofertas del mercado europeo.",
-        "El acceso a subastas B2B europeas cerradas и a redes de concesionarios nos permite encontrar opciones exclusivas no disponibles para compradores particulares.",
+        "Autoexpert EU le ayuda a comprar un coche en España y a elegir e importar un coche desde Alemania u otros países de la Unión Europea. Seleccionamos sin riesgos: proponemos opciones según su presupuesto, verificamos el estado técnico y el historial, descartamos cargas y embargos, y le acompañamos en la negociación y la compra.\nSi está considerando un coche de Alemania u otros países de la UE, organizamos la selección y la verificación, calculamos el coste total, gestionamos la entrega y los trámites de matriculación en España.",
+        "Seleccionamos vehículos estrictamente bajo su solicitud individual, optimizando su presupuesto y encontrando las mejores ofertas del mercado europeo.",
+        "El acceso a subastas B2B europeas cerradas y a redes de concesionarios nos permite encontrar opciones exclusivas no disponibles para compradores particulares.",
         "Su resultado — un coche legalmente matriculado a su nombre en la DGT, con historial transparente, kilometraje real, sin cargas ni restricciones, impuestos optimizados, sin riesgos ni burocracia innecesaria.",
       ],
       needTitle: "¿Para quién es la selección de coche en Alemania?",
       needList: [
-        "Para quienes compран un coche en España por primera vez и quieren evitar errores и gastos innecesarios.",
-        "Para no residentes и para quienes matriculan el coche a su nombre o para su familia и necesitan una tramitación correcta en la DGT.",
-        "Para quienes eligen un coche de Alemania u otros países de la UE и quieren un cálculo transparente и verificación antes de comprar.",
+        "Para quienes compran un coche en España por primera vez y quieren evitar errores y gastos innecesarios.",
+        "Para no residentes y para quienes matriculan el coche a su nombre o para su familia y necesitan una tramitación correcta en la DGT.",
+        "Para quienes eligen un coche de Alemania u otros países de la UE y quieren un cálculo transparente y verificación antes de comprar.",
         "Para quienes valoran la seguridad de la operación: legalidad, comprobación de restricciones, protección de pagos.",
-        "Para clientes ucranianos и rusoparlantes en España, a quienes les importa un acompañamiento claro и el control de documentos.",
+        "Para clientes ucranianos y rusohablantes en España, a quienes les importa un acompañamiento claro y el control de documentos.",
       ],
       risksTitle: "¿Qué riesgos cubrimos al comprar un coche?",
       risksList: [
-        "Accidentes ocultos, estado и kilometraje que no coinciden con lo anunciado.",
-        "Limitaciones jurídicas: cargas, prohibiciones и restricciones de matriculación (embargos).",
-        "Errores en documentos и trámites en la DGT que provocan retrasos и gastos adicionales.",
-        "Gastos imprevistos de impuestos и gestiones — calculamos el coste total por adelantado.",
-        "Compra “por emociones” sin estrategia — proponemos opciones racionales и alternativas dentro del presupuesto.",
+        "Accidentes ocultos, estado y kilometraje que no coinciden con lo anunciado.",
+        "Limitaciones jurídicas: cargas, prohibiciones y restricciones de matriculación (embargos).",
+        "Errores en documentos y trámites en la DGT que provocan retrasos y gastos adicionales.",
+        "Gastos imprevistos de impuestos y gestiones — calculamos el coste total por adelantado.",
+        "Compra «por emociones» sin estrategia — proponemos opciones racionales y alternativas dentro del presupuesto.",
       ],
       howTitle: "Cómo trabajamos",
       advantagesTitle: "Ventajas de Autoexpert EU",
       questionsTitle: "¿Sigues teniendo preguntas?",
-      questionsText: "Hemos reunido respuestas a las preguntas más frecuentes sobre selección, comprobaciones и plazos.",
+      questionsText: "Hemos reunido respuestas a las preguntas más frecuentes sobre selección, comprobaciones y plazos.",
       faqBtn: "Ir a FAQ",
       startTitle: "¿Listo para empezar?",
-      startText1:
-        "Deje una solicitud — evaluaremos su caso gratuitamente и le propondremos un plan claro para la selección и compra en España, Alemania u otros países de la Unión Europea.",
+      startText1: "Deje una solicitud — evaluaremos su caso gratuitamente y le propondremos un plan claro para la selección y compra en España, Alemania u otros países de la Unión Europea.",
       startText2: "También podemos ayudarle si necesita matricular un vehículo en la DGT de España.",
       startBtn1: "RELLENAR FORMULARIO DE BÚSQUEDA DE COCHE",
       startBtn2: "Matricular un coche en España",
       howItems: [
-        { t: "Solicitud и análisis preliminar gratuito", d: "Usted deja una solicitud con el modelo, el presupuesto и sus preferencias. Analizamos el mercado gratuitamente и confirmamos que la solicitud es realista в precio и equipamiento." },
+        { t: "Solicitud y análisis preliminar gratuito", d: "Usted deja una solicitud con el modelo, el presupuesto y sus preferencias. Analizamos el mercado gratuitamente y confirmamos que la solicitud es realista en precio y equipamiento." },
         { t: "Ajuste de la solicitud a favor del cliente", d: "Si los parámetros no se ajustan al mercado, proponemos ajustes: presupuesto, equipamiento, modelos alternativos. A menudo encontramos opciones mejores de lo esperado." },
-        { t: "Contrato e inicio de la búsqueda", d: "Fijamos las condiciones в контракте y comenzamos la búsqueda. Proponemos no menos de 10 opciones de coches verificados и explicamos las ventajas и los riesgos de cada uno." },
-        { t: "Verificación integral", d: "Realizamos diagnóstico técnico и verificación jurídica: kilometraje, historial de mantenimiento, accidentes, restricciones и cargas (embargos)." },
-        { t: "Compra, entrega и matriculación", d: "Según la plataforma donde se compra el coche, ayudamos en la compra и в la firma del contrato. Organizamos una logística segura и la matriculación con placas españolas. Acompañamos el proceso hasta el resultado: la obtención de las placas españolas del coche." },
+        { t: "Contrato e inicio de la búsqueda", d: "Fijamos las condiciones en el contrato y comenzamos la búsqueda. Proponemos no menos de 10 opciones de coches verificados y explicamos las ventajas y los riesgos de cada uno." },
+        { t: "Verificación integral", d: "Realizamos diagnóstico técnico y verificación jurídica: kilometraje, historial de mantenimiento, accidentes, restricciones y cargas (embargos)." },
+        { t: "Compra, entrega y matriculación", d: "Según la plataforma donde se compra el coche, ayudamos en la compra y en la firma del contrato. Organizamos una logística segura y la matriculación con placas españolas. Acompañamos el proceso hasta el resultado: la obtención de las placas españolas del coche." },
       ],
       advItems: [
         { t: "Análisis preliminar gratuito de la solicitud", d: "Usted no paga nada hasta que confirmemos la viabilidad de la compra según sus parámetros." },
         { t: "Acceso a subastas B2B cerradas en Europa", d: "Trabajamos con subastas profesionales no disponibles para particulares para encontrar mejores ofertas." },
-        { t: "Optimización de impuestos (IEDMT)", d: "Calculamos el impuesto de matriculación и buscamos formas legales de reducir su carga fiscal." },
-        { t: "Garantía de Distintivo Ambiental DGT (ZBE)", d: "Seleccionamos el coche adecuado и tramitamos su pegatina DGT para acceso libre a las ciudades." },
-        { t: "Seguridad jurídica и protección de sus pagos", d: "Comprobamos la ausencia de embargos и garantizamos transparencia total в transacciones." },
+        { t: "Optimización de impuestos (IEDMT)", d: "Calculamos el impuesto de matriculación y buscamos formas legales de reducir su carga fiscal." },
+        { t: "Garantía de Distintivo Ambiental DGT (ZBE)", d: "Seleccionamos el coche adecuado y tramitamos su pegatina DGT para acceso libre a las ciudades." },
+        { t: "Seguridad jurídica y protección de sus pagos", d: "Comprobamos la ausencia de embargos y garantizamos transparencia total en las transacciones." },
       ],
-      links: { avtopodbor: "RELLENAR FORMULARIO DE BÚSQUEDA DE COCHE", registro: "Matricular un coche в España." },
+      readAlso: "Ver también:",
+      readAlsoLinks: [
+        { href: "avto-iz-germanii", label: "Coches de Alemania a España" },
+        { href: "avto-iz-germanii/skolko-stoit", label: "¿Cuánto cuesta importar un coche de Alemania?" },
+        { href: "avtopodbor", label: "Selección de coche llave en mano" },
+        { href: "faq", label: "Preguntas frecuentes" },
+      ],
+      links: { avtopodbor: "RELLENAR FORMULARIO DE BÚSQUEDA DE COCHE", registro: "Matricular un coche en España." },
     };
   }
 
@@ -177,12 +189,12 @@ function copy(locale: Locale) {
       { icon: "💬", title: "Поддержка на вашем языке", desc: "Русскоязычным и украиноязычным клиентам в Испании — понятное сопровождение и контроль документов на каждом этапе." },
     ],
     whatBtn: "Опишите желаемый автомобиль",
-    heroTitle: "Профессиональный автоподбор и полная регистрация авто в Испании",
+    heroTitle: "Профессиональный подбор авто и полная регистрация в Испании",
     heroText: [
-      "Autoexpert EU помогает помогает купить автомобиль в Испании, выбрать и пригнать автомобиль из Германии или других стран Европейского союза. Подбираем без рисков: предлагаем варианты под Ваш бюджет, проверяем техническое состояние и историю, исключаем ограничения и залоги (embargos), сопровождаем переговоры и покупку.\nЕсли вы рассматриваете авто из Германии или других стран ЕС — организуем подбор и проверку, просчитываем итоговую стоимость, оранизуем доставку и оформление постановки на учет в  Испании.",
+      "Autoexpert EU помогает купить автомобиль в Испании, выбрать и пригнать автомобиль из Германии или других стран Европейского союза. Подбираем без рисков: предлагаем варианты под Ваш бюджет, проверяем техническое состояние и историю, исключаем ограничения и залоги (embargos), сопровождаем переговоры и покупку.\nЕсли вы рассматриваете авто из Германии или других стран ЕС — организуем подбор и проверку, просчитываем итоговую стоимость, организуем доставку и оформление постановки на учёт в Испании.",
       "Мы специализируемся на подборе автомобиля под индивидуальный запрос, оптимизируя ваш бюджет и находя лучшие предложения на рынке ЕС.",
       "Доступ к закрытым европейским B2B-аукционам и дилерским сетям позволяет нам находить эксклюзивные варианты, недоступные частным покупателям.",
-      "Ваш результат — легально зарегистрированный на Ваше имя  в  DGT автомобиль, с прозрачной историей,  реальным пробегом, без залогов и ограничени, отпимизированными  налогами,  без рисков и лишней бюрократии.",
+      "Ваш результат — легально зарегистрированный на Ваше имя в DGT автомобиль, с прозрачной историей, реальным пробегом, без залогов и ограничений, оптимизированными налогами, без рисков и лишней бюрократии.",
     ],
     needTitle: "Кому нужен подбор авто в Испании, Германии",
     needList: [
@@ -206,24 +218,30 @@ function copy(locale: Locale) {
     questionsText: "Собрали ответы на самые частые вопросы про подбор, проверки, документы и сроки.",
     faqBtn: "Перейти в FAQ",
     startTitle: "Готовы начать?",
-    startText1:
-      "Оставьте заявку — мы бесплатно оценим ваш запрос и предложим понятный план действий по подбору, покупке в Испании, Германии или других странах Евросоюза.",
-    startText2: "Мы также поможем, если Вам нужно зарегистрировать автомобиль в DGT Испании .",
+    startText1: "Оставьте заявку — мы бесплатно оценим ваш запрос и предложим понятный план действий по подбору, покупке в Испании, Германии или других странах Евросоюза.",
+    startText2: "Мы также поможем, если Вам нужно зарегистрировать автомобиль в DGT Испании.",
     startBtn1: "Заполнить форму подбора авто",
     startBtn2: "Зарегистрировать авто в Испании",
     howItems: [
       { t: "Заявка и бесплатный предварительный анализ", d: "Вы оставляете заявку с моделью, бюджетом и пожеланиями. Мы бесплатно анализируем рынок и подтверждаем, что запрос реалистичен по цене и комплектации." },
       { t: "Корректировка заявки в пользу клиента", d: "Если параметры не соответствуют рынку, предлагаем корректировки: бюджет, комплектация, альтернативные модели. Часто находим варианты выгоднее ожидаемого." },
-      { t: "Контракт и начало подбора", d: "Фиксируем условия в контракте и запускаем подбор. Предлагаем не менее 10 -ти вариантов проверенных авто, объясняем плюсы и риски каждого." },
+      { t: "Контракт и начало подбора", d: "Фиксируем условия в контракте и запускаем подбор. Предлагаем не менее 10 вариантов проверенных авто, объясняем плюсы и риски каждого." },
       { t: "Комплексная проверка", d: "Проводим техническую диагностику и юридическую проверку: пробег, история обслуживания, ДТП, ограничения и залоги (embargos)." },
-      { t: "Покупка, доставка и регистрация", d: "В зависимости от площадки, на которой приобретается автомобиль, содействуем приобретению и заключению  договора Организуем безопасную логистику и регистрацию автомобиля на испанские номера. Сопровождаем процесс до результата - получения испанских номеров на авто." },
+      { t: "Покупка, доставка и регистрация", d: "В зависимости от площадки, на которой приобретается автомобиль, содействуем приобретению и заключению договора. Организуем безопасную логистику и регистрацию автомобиля на испанские номера. Сопровождаем процесс до результата — получения испанских номеров на авто." },
     ],
     advItems: [
       { t: "Бесплатный предварительный анализ заявки", d: "Вы ничего не платите до тех пор, пока мы не подтвердим реальную возможность покупки автомобиля по вашим параметрам." },
       { t: "Доступ к закрытым B2B-аукционам Европы", d: "Мы работаем с профессиональными площадками, недоступными частным лицам. Это позволяет находить авто в лучшем состоянии по честной цене." },
-      { t: "Оптимизация налогов и расчет стоимости", d: "Мы профессионально рассчитываем налог на регистрацию (IEDMT) и находим законные способы минимизации затрат еще до покупки." },
-      { t: "Гарантия получения экологической метки DGT", d: "Подбираем авто нужного класса и берем на себя получение наклейки для свободного въезда в зоны ZBE всех городов Испании." },
+      { t: "Оптимизация налогов и расчёт стоимости", d: "Мы профессионально рассчитываем налог на регистрацию (IEDMT) и находим законные способы минимизации затрат ещё до покупки." },
+      { t: "Гарантия получения экологической метки DGT", d: "Подбираем авто нужного класса и берём на себя получение наклейки для свободного въезда в зоны ZBE всех городов Испании." },
       { t: "Юридическая чистота и защита платежей", d: "Проверяем автомобиль на отсутствие залогов (embargos) и штрафов. Сопровождаем международные переводы и гарантируем прозрачность." },
+    ],
+    readAlso: "Читайте также:",
+    readAlsoLinks: [
+      { href: "avto-iz-germanii", label: "Авто из Германии в Испанию" },
+      { href: "avto-iz-germanii/skolko-stoit", label: "Стоимость авто из Германии" },
+      { href: "avtopodbor", label: "Подбор авто под ключ" },
+      { href: "faq", label: "Частые вопросы" },
     ],
     links: { avtopodbor: "Заполнить форму подбора авто", registro: "Зарегистрировать авто в Испании." },
   };
@@ -233,8 +251,7 @@ function DrivingIcon({ open }: { open: boolean }) {
   return (
     <span className="lg:absolute lg:left-5 lg:top-1/2 lg:-translate-y-1/2 relative mt-2 block pointer-events-none">
       <span className={["inline-block will-change-transform", "translate-x-0", "drive-car", open ? "translate-x-2" : ""].join(" ")}>
-        <img src="/vip_car.png" alt="" className="h-20 w-auto object-contain drop-shadow"
- draggable={false} />
+        <img src="/vip_car.png" alt="" className="h-20 w-auto object-contain drop-shadow" draggable={false} />
       </span>
     </span>
   );
@@ -303,10 +320,11 @@ export default function HomePage({ params }: { params: { locale: string } }) {
 
   const requestHref = `/${locale}/request`;
   const avtoHref = `/${locale}/avtopodbor`;
-  const faqHref = `/${locale}/fao`;
-  const registoHref = `/${locale}/registo`;
+  const faqHref = `/${locale}/faq`;
+  const registroHref = `/${locale}/registro`;
 
   const heroBtnSrc = locale === "ru" ? "/rus_glav.png" : locale === "es" ? "/esp_glannay_1.png" : "/eng_glavnay.png";
+
   return (
     <main className="mx-auto w-full max-w-5xl px-4 pt-2 pb-6">
       {/* HERO SECTION */}
@@ -337,15 +355,13 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       {/* WHAT YOU GET BLOCK */}
       <section className="mt-8 flex justify-center">
         <div className="w-full max-w-3xl rounded-3xl border-2 border-[#0B3B73]/20 bg-white shadow-[0_20px_60px_rgba(11,59,115,0.12)] overflow-hidden">
-          {/* Header */}
           <div className="bg-[#0B3B73] px-6 py-4 text-center">
             <h2 className="text-base sm:text-lg font-bold text-white tracking-wide uppercase">
               {(C as any).whatTitle}
             </h2>
           </div>
-          {/* Grid of items */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#0B3B73]/10">
-            {((C as any).whatItems as Array<{icon: string; title: string; desc: string}>).map((item, i) => (
+            {((C as any).whatItems as Array<{ icon: string; title: string; desc: string }>).map((item, i) => (
               <div key={i} className="bg-white px-5 py-4 flex gap-3 items-start hover:bg-[#f0f5ff] transition-colors duration-200">
                 <span className="text-2xl shrink-0 mt-0.5">{item.icon}</span>
                 <div>
@@ -355,7 +371,6 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               </div>
             ))}
           </div>
-          {/* CTA button */}
           <div className="bg-[#f8fafc] px-6 py-5 text-center border-t border-[#0B3B73]/10">
             <NextLink
               href={requestHref}
@@ -374,7 +389,17 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       </section>
 
       {/* DROPDOWN LISTS */}
-      <DropdownListGroup sections={[{ id: "need", title: C.needTitle, items: C.needList }, { id: "risks", title: C.risksTitle, items: C.risksList }]} openId={dropdownOpenId} onToggle={(id) => { setDropdownOpenId((prev) => (prev === id ? null : id)); setHomeAccordionsResetSeed((s) => s + 1); }} />
+      <DropdownListGroup
+        sections={[
+          { id: "need", title: C.needTitle, items: C.needList },
+          { id: "risks", title: C.risksTitle, items: C.risksList },
+        ]}
+        openId={dropdownOpenId}
+        onToggle={(id) => {
+          setDropdownOpenId((prev) => (prev === id ? null : id));
+          setHomeAccordionsResetSeed((s) => s + 1);
+        }}
+      />
 
       <div className="home-accordion-section-wrap">
         <style jsx global>{`
@@ -398,14 +423,37 @@ export default function HomePage({ params }: { params: { locale: string } }) {
           <div className="rounded-2xl border bg-white p-5">
             <div className="flex items-center justify-center gap-3">
               <img src="/icons/attencion.png" alt="" className="h-10 w-10 object-contain drop-shadow shrink-0" />
-              <h2 className="text-lg font-semibold text-center">{C.questionsTitle}</h2>
+              <h2 className="text-lg font-semibold text-center">Авто в Аликанте</h2>
             </div>
             <p className="mt-4 whitespace-pre-line" style={{ textAlign: "justify" }}>{C.questionsText}</p>
             <div className="mt-6 flex justify-center">
-              <NextLink href={faqHref} className="inline-flex items-center justify-center">
-                <img src={locale === "ru" ? "/icons/faq_rus.png" : locale === "es" ? "/icons/esp_faq.png" : "/icons/eng_faq.png"} alt={C.faqBtn} className="h-auto w-full max-w-[320px] drop-shadow" draggable={false} />
+              <NextLink href={`/${locale}/avto-iz-germanii/alicante`} className="inline-flex items-center justify-center">
+                <img
+                  src={locale === "ru" ? "/icons/faq_rus.png" : locale === "es" ? "/icons/esp_faq.png" : "/icons/eng_faq.png"}
+                  alt={C.faqBtn}
+                  className="h-auto w-full max-w-[320px] drop-shadow"
+                  draggable={false}
+                />
               </NextLink>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ЧИТАЙТЕ ТАКЖЕ */}
+      <section className="mt-10 flex justify-center">
+        <div className="w-full max-w-3xl">
+          <p className="text-base font-semibold text-[#0B3B73] mb-3 text-center">{(C as any).readAlso}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {((C as any).readAlsoLinks as Array<{ href: string; label: string }>).map((link) => (
+              <NextLink
+                key={link.href}
+                href={`/${locale}/${link.href}`}
+                className="rounded-2xl border bg-white px-5 py-3 text-base font-medium text-[#0B3B73] shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition hover:bg-[#F6F8FC]"
+              >
+                {link.label}
+              </NextLink>
+            ))}
           </div>
         </div>
       </section>
@@ -421,8 +469,18 @@ export default function HomePage({ params }: { params: { locale: string } }) {
             <p className="mt-4 whitespace-pre-line" style={{ textAlign: "justify" }}>{C.startText1}</p>
             <p className="mt-3 whitespace-pre-line" style={{ textAlign: "justify" }}>{C.startText2}</p>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <NextLink href={requestHref} className="btn-gradient-animate inline-flex items-center justify-center rounded-xl px-6 py-4 text-base font-bold text-white border border-white/15 shadow-[0_14px_28px_rgba(0,0,0,0.32)] hover:brightness-110 active:translate-y-[2px]">{C.startBtn1}</NextLink>
-              <NextLink href={registoHref} className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-4 text-base font-bold text-[#0B3B73] border border-[#0B3B73]/45 shadow-[0_14px_26px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-[2px]">{C.startBtn2}</NextLink>
+              <NextLink
+                href={requestHref}
+                className="btn-gradient-animate inline-flex items-center justify-center rounded-xl px-6 py-4 text-base font-bold text-white border border-white/15 shadow-[0_14px_28px_rgba(0,0,0,0.32)] hover:brightness-110 active:translate-y-[2px]"
+              >
+                {C.startBtn1}
+              </NextLink>
+              <NextLink
+                href={registroHref}
+                className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-4 text-base font-bold text-[#0B3B73] border border-[#0B3B73]/45 shadow-[0_14px_26px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-[2px]"
+              >
+                {C.startBtn2}
+              </NextLink>
             </div>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
-const CarCalculatorClient = dynamic(() => import("./CarCalculatorClient"), { ssr: false });
+
 
 /* ─────────────────────────────────────────────────────────────
    TYPES
@@ -18,8 +17,8 @@ function copy(locale: string) {
   if (L === "en") {
     return {
       heroAlt: "Buy a car in Germany and bring it to Spain",
-      heroTitle: "How to bring a car from Germany to Spain turnkey: real price, taxes, ITV and DGT registration",
-      heroSub: "Want to drive the car over yourself? It’s possible — but Spain has strict DGT/ITV rules and taxes. One mistake in the calculations can cost thousands of euros. Our consultation gives you a step-by-step registration plan and locks the real price before you buy.",
+      heroTitle: "Car from Germany to Spain — purchase, delivery and DGT registration",
+      heroSub: "We source and buy the car in Germany, deliver it to Spain and register it with the DGT turnkey: full cost calculated upfront, taxes, ITV and DGT registration — no surprises.",
       dealLabel: "Real deal — won at auction",
       dealBadge: "✓ Tender won",
       dealCar: "Audi Q5 40 TDI",
@@ -277,8 +276,8 @@ function copy(locale: string) {
   if (L === "es") {
     return {
       heroAlt: "Comprar un coche en Alemania y traerlo a España",
-      heroTitle: "Cómo traer un coche de Alemania a España llave en mano: precio real, impuestos, ITV y matriculación en la DGT",
-      heroSub: "¿Quiere importar un coche de Alemania a España por su cuenta? Puede hacerlo, pero deberá cumplir con la DGT, la ITV y pagar los impuestos de matriculación. Un cálculo incorrecto puede costarle miles de euros. Nuestra consulta le permite conocer el coste real y fijar el presupuesto final antes de comprar.",
+      heroTitle: "Coche de Alemania a España — compra, transporte y matriculación en DGT",
+      heroSub: "Compramos el vehículo en Alemania, lo transportamos a España y lo matriculamos llave en mano: precio total calculado por adelantado, impuestos, ITV y registro en DGT sin sorpresas.",
       dealLabel: "Operación real — ganada en subasta",
       dealBadge: "✓ Subasta ganada",
       dealCar: "Audi Q5 40 TDI",
@@ -305,9 +304,9 @@ function copy(locale: string) {
           "Respuesta corta: depende del segmento del vehículo. Seamos honestos.",
           "<strong>Cuándo merece claramente la pena:</strong>",
           "En vehículos de 20 000 € en adelante, la diferencia entre una subasta alemana y el mercado español oscila de forma estable entre 12 000 y 20 000 €. No es un argumento publicitario — es aritmética: las empresas de leasing venden los vehículos devueltos sin el margen minorista del concesionario (15–25%), y los gastos de transporte y matriculación en España son fijos e independientes del precio del coche.",
-          "Los segmentos más rentables: crossovers y SUV (Audi Q5/Q7, BMW X5, Mercedes GLC/GLE, Volkswagen Touareg), sedanes de negocios (BMW Serie 5, Mercedes Clase E, Audi A6) и el segmento premium en general — precisamente donde el margen del concesionario es mayor.",
+          "Los segmentos más rentables: crossovers y SUV (Audi Q5/Q7, BMW X5, Mercedes GLC/GLE, Volkswagen Touareg), sedanes de negocios (BMW Serie 5, Mercedes Clase E, Audi A6) y el segmento premium en general — precisamente donde el margen del concesionario es mayor.",
           "<strong>Cuándo el ahorro es menor:</strong>",
-          "En vehículos por debajo de 15 000 €, los costes de transporte y matriculación representan una parte significativa del valor total, и el ahorro neto se reduce considerablemente. Importar un utilitario desde Alemania para ahorrar 1 500–2 000 € no es rentable.",
+          "En vehículos por debajo de 15 000 €, los costes de transporte y matriculación representan una parte significativa del valor total, y el ahorro neto se reduce considerablemente. Importar un utilitario desde Alemania para ahorrar 1 500–2 000 € no es rentable.",
         ],
         h3: [
           {
@@ -322,15 +321,15 @@ function copy(locale: string) {
       {
         h2: "Impuestos ocultos y pagos obligatorios en España",
         p: [
-          "Alemania y España son países de la UE, por lo que no hay aranceles aduaneros entre ellos. Pero eso no significa que ‘no haya impuestos’. En España le esperan pagos y procedimientos de matriculación, и precisamente ellos suelen ‘comerse’ la ventaja esperada.",
-          "Puntos clave de riesgo: impuesto de matriculación (IEDMT — depende de emisiones/tipo de vehículo y de la región), impuesto municipal (IVTM — depende del municipio), posibles tasas administrativas, и también costes de adaptación/certificación si faltan documentos o hay matices de equipamiento.",
-          "Importante: las cuantías и las reglas pueden variar por región и por la situación concreta del vehículo. En la consulta no ‘adivinamos’: calculamos escenarios и mostramos el rango de gastos con antelación para que entienda el precio real de traer un coche de Alemania a España.",
+          "Alemania y España son países de la UE, por lo que no hay aranceles aduaneros entre ellos. Pero eso no significa que ‘no haya impuestos’. En España le esperan pagos y procedimientos de matriculación, y precisamente ellos suelen ‘comerse’ la ventaja esperada.",
+          "Puntos clave de riesgo: impuesto de matriculación (IEDMT — depende de emisiones/tipo de vehículo y de la región), impuesto municipal (IVTM — depende del municipio), posibles tasas administrativas, y también costes de adaptación/certificación si faltan documentos o hay matices de equipamiento.",
+          "Importante: las cuantías y las reglas pueden variar por región y por la situación concreta del vehículo. En la consulta no ‘adivinamos’: calculamos escenarios y mostramos el rango de gastos con antelación para que entienda el precio real de traer un coche de Alemania a España.",
         ],
         h3: [
           {
             t: "Por qué ‘compré barato’ ≠ ‘matriculé barato’",
             p: [
-              "La compra es solo la entrada. El problema empieza cuando la persona ya pagó el coche и luego descubre que, por documentos o por emisiones, necesita otra vía de matriculación, certificados adicionales o modificaciones. Al final se alargan los plazos и crece el presupuesto.",
+              "La compra es solo la entrada. El problema empieza cuando la persona ya pagó el coche y luego descubre que, por documentos o por emisiones, necesita otra vía de matriculación, certificados adicionales o modificaciones. Al final se alargan los plazos y crece el presupuesto.",
             ],
           },
         ],
@@ -465,7 +464,7 @@ function copy(locale: string) {
         { label: "🇩🇪 Puja ganadora en subasta (Alemania)", val: "24 000 €" },
         { label: "🚚 Transporte Alemania → España", val: "1 200 €" },
         { label: "📄 Trámites aduaneros UE", val: "incluido" },
-        { label: "🏛 Matriculación в España (ITV, DGT)", val: "1 800 €" },
+        { label: "🏛 Matriculación en España (ITV, DGT)", val: "1 800 €" },
         { label: "🔍 Tarifa del servicio AutoexpertEU", val: "1 500 €" },
       ],
       caseTotalLabel: "💳 TOTAL LLAVE EN MANO EN ESPAÑA",
@@ -483,52 +482,52 @@ function copy(locale: string) {
       serviceItems: [
         {
           t: "Consulta sobre la compra de un coche en Alemania",
-          d: "Le explicamos cómo funcionan las subastas europeas, cuáles son los costes reales и le damos una estimación gratuita del precio llave en mano para el modelo concreto que desea. Gratis, sin compromiso.",
+          d: "Le explicamos cómo funcionan las subastas europeas, cuáles son los costes reales y le damos una estimación gratuita del precio llave en mano para el modelo concreto que desea. Gratis, sin compromiso.",
         },
         {
-          t: "Selección и importación completa llave en mano",
-          d: "El servicio completo: búsqueda, verificación de historial, puja в subasta, transporte desde Alemania, entrega в España, ITV, matriculación в DGT, placas españolas. Solo tiene que describir el coche и recibir las llaves.",
+          t: "Selección y importación completa llave en mano",
+          d: "El servicio completo: búsqueda, verificación de historial, puja en subasta, transporte desde Alemania, entrega en España, ITV, matriculación en DGT, placas españolas. Solo tiene que describir el coche y recibir las llaves.",
         },
         {
-          t: "Solo matriculación в España (coche ya comprado)",
-          d: "Si ya ha comprado un coche en Alemania и necesita matricularlo в España, gestionamos todo el proceso: ITV, cálculo del impuesto IEDMT, presentación в DGT и recogida de matrícula.",
+          t: "Solo matriculación en España (coche ya comprado)",
+          d: "Si ya ha comprado un coche en Alemania y necesita matricularlo en España, gestionamos todo el proceso: ITV, cálculo del impuesto IEDMT, presentación en DGT y recogida de matrícula.",
         },
       ],
       faqTitle: "Preguntas frecuentes",
       faqItems: [
         {
           t: "¿Cuánto cuesta traer un coche de Alemania a España?",
-          d: "El coste total depende de la puja ganadora en la subasta más nuestra tarifa de servicio, transporte и costes de matriculación в España. Ejemplo: Audi Q5 ganado por 24 000 €, total llave en mano в España 28 500 €, frente a 42 800 €+ в concesionario español. Le ofrecemos un presupuesto gratuito para su modelo específico.",
+          d: "El coste total depende de la puja ganadora en la subasta más nuestra tarifa de servicio, transporte y costes de matriculación en España. Ejemplo: Audi Q5 ganado por 24 000 €, total llave en mano en España 28 500 €, frente a 42 800 €+ en concesionario español. Le ofrecemos un presupuesto gratuito para su modelo específico.",
         },
         {
-          t: "¿Hay aranceles aduaneros entre Alemania и España?",
-          d: "No. Ambos países son estados miembros de la UE, por lo que no existen barreras aduaneras. El único impuesto aplicable es el impuesto español de matriculación de vehículos (IEDMT), que calculamos por adelantado и buscamos optimizar legalmente.",
+          t: "¿Hay aranceles aduaneros entre Alemania y España?",
+          d: "No. Ambos países son estados miembros de la UE, por lo que no existen barreras aduaneras. El único impuesto aplicable es el impuesto español de matriculación de vehículos (IEDMT), que calculamos por adelantado y buscamos optimizar legalmente.",
         },
         {
-          t: "¿Qué documentos se necesitan para matricular un coche alemán в España?",
-          d: "Se necesita: el certificado de matrícula alemán (Fahrzeugbrief / Zulassungsbescheinigung Teil II), certificado de conformidad UE (COC), su NIE, pasaporte и justificante del pago del impuesto. AutoexpertEU recoge и presenta todos los documentos en su nombre.",
+          t: "¿Qué documentos se necesitan para matricular un coche alemán en España?",
+          d: "Se necesita: el certificado de matrícula alemán (Fahrzeugbrief / Zulassungsbescheinigung Teil II), certificado de conformidad UE (COC), su NIE, pasaporte y justificante del pago del impuesto. AutoexpertEU recoge y presenta todos los documentos en su nombre.",
         },
         {
           t: "¿Cuánto tiempo dura todo el proceso?",
-          d: "Normalmente entre 3 и 6 semanas desde que se gana la subasta hasta recibir el coche con matrícula española. Desglose: tramitación de la compra 1–3 días, transporte Alemania–España 5–10 días, matriculación española 2–4 semanas.",
+          d: "Normalmente entre 5 y 6 semanas desde la solicitud hasta recibir el coche con matrícula española. Desglose: tramitación de la compra 1–3 días, transporte desde Alemania a partir de 15 días laborables (camión portacoches), matriculación en España desde la llegada del vehículo hasta las placas 1–3 semanas con documentación en regla.",
         },
         {
           t: "¿Cómo sé que el coche no está accidentado o tiene el kilometraje manipulado?",
-          d: "Antes de cada puja realizamos una verificación completa del historial VIN mediante bases de datos alemanas и europeas: accidentes, kilometraje real, historial de mantenimiento, embargos pendientes. Si el historial no está claro или es incorrecto, no pujamos.",
+          d: "Antes de cada puja realizamos una verificación completa del historial VIN mediante bases de datos alemanas y europeas: accidentes, kilometraje real, historial de mantenimiento, embargos pendientes. Si el historial no está claro o es incorrecto, no pujamos.",
         },
         {
           t: "¿Qué pasa si el coche llega dañado durante el transporte?",
           d: "El coche está totalmente asegurado durante el trayecto. Cualquier daño de transporte descubierto en la entrega está cubierto por la póliza de seguro. Todas las condiciones quedan escritas en el contrato antes de empezar.",
         },
         {
-          t: "¿Puedo comprar directamente в subasta alemana yo mismo?",
-          d: "No. Las subastas de coches alemanas funcionan в régimen B2B и requieren acreditación profesional como distribuidor para participar. Los particulares no tienen acceso. Por eso necesita un intermediario acreditado — nosotros.",
+          t: "¿Puedo comprar directamente en subasta alemana yo mismo?",
+          d: "No. Las subastas de coches alemanas funcionan en régimen B2B y requieren acreditación profesional como distribuidor para participar. Los particulares no tienen acceso. Por eso necesita un intermediario acreditado — nosotros.",
         },
       ],
       hReady: "¿Listo para encontrar su coche en Alemania?",
       pReady: "Cuéntenos qué coche está buscando — verificaremos el mercado de forma gratuita y le diremos si es posible encontrar ese vehículo, cuánto costará llave en mano en España, o le propondremos una opción que quizás supere sus expectativas.",
       hQuestions: "¿Aún tiene preguntas?",
-      btnFaq: "Respuestas в la página de FAQ",
+      btnFaq: "Respuestas en la página de FAQ",
       btnContact: "Contáctenos",
     };
   }
@@ -536,9 +535,9 @@ function copy(locale: string) {
   // ── RUSSIAN (default) ──────────────────────────────────────
   return {
     heroAlt: "Купить авто в Германии и привезти в Испанию",
-    heroTitle: "Как привезти авто из Германии в Испанию под ключ: реальная цена, налоги, ITV и регистрация DGT",
+    heroTitle: "Авто из Германии в Испанию — покупка, доставка и регистрация в DGT",
     heroSub:
-      "Хотите пригнать машину сами? Это возможно, но связано с жёсткими правилами DGT, ITV и налогами в Испании. Ошибка в расчётах может стоить тысяч евро. Наша консультация — чтобы получить пошаговый план пригона и регистрации и зафиксировать итоговую стоимость до покупки.",
+      "Подберём и купим авто в Германии, доставим в Испанию и оформим под ключ: расчёт полной стоимости заранее, налоги, ITV и регистрация в DGT без сюрпризов.",
     dealLabel: "Реальная сделка — победа на аукционе",
     dealBadge: "✓ Тендер выигран",
     dealCar: "Audi Q5 40 TDI",
@@ -772,7 +771,7 @@ function copy(locale: string) {
       },
       {
         t: "Сколько времени займёт весь процесс?",
-        d: "Обычно 3–6 недель с момента победы на аукционе до получения автомобиля с испанскими номерами. Разбивка: оформление покупки 1–3 дня, транспортировка Германия–Испания 5–10 дней, испанская регистрация 2–4 недели.",
+        d: "Обычно 5–6 недель с момента заявки до получения автомобиля с испанскими номерами. Разбивка: оформление покупки 1–3 дня, доставка из Германии — от 15 рабочих дней (автовоз), регистрация в Испании от прибытия авто до получения номеров — 1–3 недели при чистом пакете документов.",
       },
       {
         t: "Как убедиться, что автомобиль не битый и без скрученного пробега?",
@@ -812,15 +811,15 @@ export async function generateMetadata({
   // Short, search-friendly description (avoid keyword stuffing)
   const description =
     locale === "ru"
-      ? "Как привезти авто из Германии в Испанию без сюрпризов: реальные расходы, налоги, DGT/ITV и понятный план. Консультация — чтобы зафиксировать цену до покупки."
+      ? "Как зарегистрировать автомобиль из Германии в Испании. ITV, налоги, документы и регистрация в DGT."
       : locale === "es"
-        ? "Traer un coche de Alemania a España: costes reales, impuestos, DGT/ITV steps and plan paso a paso. Consulta para fijar el precio antes de comprar."
-        : "Import a car from Germany to Spain: real costs, taxes, DGT/ITV steps and a clear plan. Consultation to lock the real price before you buy.";
+        ? "Cómo matricular un coche de Alemania en España. ITV, impuestos y registro en DGT paso a paso."
+        : "How to register a car from Germany in Spain. ITV inspection, taxes and DGT registration process.";
 
   const titles: Record<string, string> = {
-    ru: "Сколько реально стоит привезти авто из Германии в Испанию И КАК НЕ ПЕРЕПЛАТИТЬ",
-    es: "¿Cuánto cuesta realmente importar un coche de Alemania a España Y CÓMO NO PAGAR DE MÁS?",
-    en: "How much does it really cost to import a car from Germany to Spain AND HOW TO AVOID OVERPAYING",
+    ru: "Авто из Германии в Испанию — покупка, доставка и регистрация в DGT",
+    es: "Importar coche de Alemania a España — compra, transporte y matriculación en DGT | AutoexpertEU",
+    en: "Car import from Germany to Spain — purchase, delivery and DGT registration | AutoexpertEU",
   };
 
   return {
@@ -1153,8 +1152,7 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
   const locale = params.locale;
   const C = copy(locale);
   const requestHref = `/${locale}/request`;
-  const faqHref = `/${locale}/fao`;
-  const contactsHref = `/${locale}/contacto`;
+  const faqHref = `/${locale}/faq`;
 
   const schemaService = {
     "@context": "https://schema.org",
@@ -1166,7 +1164,7 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
       url: "https://autoexperteu.com",
       areaServed: "Spain",
     },
-    description: C.intro.split("\n")[0],
+    description: C.heroSub,
     offers: { "@type": "Offer", priceCurrency: "EUR", availability: "https://schema.org/InStock" },
   };
 
@@ -1215,83 +1213,76 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
       {locale === "ru" ? (
         <section className="mt-8">
           <div className="text-base leading-relaxed" style={{ textAlign: "justify" }}>
-            Покупка автомобиля в Германии и пригон в Испанию под ключ — это услуга для тех, кто хочет
-            получить качественный европейский автомобиль без переплат дилеру, без часов и дней поиска
-            по сайтам, без бюрократии и языкового барьера. Вы формулируете задачу — мы берём на себя
-            весь процесс: от поиска авто до испанских номеров у вас в руках.
+            <h2 className="text-xl font-bold text-[#0B3B73] mb-4">
+              Авто из Германии в Испанию под ключ — работаем в Аликанте, Валенсии, Мадриде и Барселоне.
+            </h2>
+            <p>
+              Находим автомобиль на немецком аукционе или у дилера, доставляем в Испанию и регистрируем в DGT. Вы получаете готовый автомобиль на испанских номерах — без бюрократии, языкового барьера и переплат дилеру.
+            </p>
             <br />
+            <p>
+              Авто из Германии можно привезти через аукцион, у официального дилера или напрямую у владельца. Итоговая цена зависит не от места покупки, а от полной стоимости регистрации в Испании. Мы рассчитываем всё заранее: цена авто + доставка + страховка + ITV + DGT + налог IEDMT. Никаких сюрпризов после оплаты.
+            </p>
             <br />
-            А если вы уже присматриваете автомобиль самостоятельно — мы можем помочь и с этим:
-            проверить историю, сопроводить сделку или взять на себя только прохождение ITV,
-            постановку на учёт в DGT и помощь с уплатой налогов Испании.
-            <br />
-            <br />
-            <div className="text-center"><strong>Обращайтесь на любом этапе.</strong></div>
-            <br />
-            Пригнать авто из Германии в Испанию можно через аукцион, у официального дилера или по прямой покупке у владельца. Но итоговая цена определяется не местом покупки, а полной стоимостью регистрации в Испании.
-            <br />
-            В бюджет «под ключ» входят: цена автомобиля, комиссия (если есть), доставка, страховка, подготовка документов, прохождение ITV, регистрация в DGT и налог на постановку на учёт (IEDMT). Между Германией и Испанией нет таможенных пошлин, но есть обязательные регистрационные платежи.
-            <br />
-            <br />
-            <div className="rounded-2xl bg-[#F6F8FC] border p-6">
-              <div className="text-center"><strong>Главная ошибка —</strong></div>
-              сравнивать цену в Германии с ценой в Испании без учёта доставки и налогов. Реальный расчёт выглядит так: покупка + доставка + налоги + оформление = итоговая стоимость автомобиля на испанских номерах.
-            </div>
+            <p className="mt-3 text-base">
+              Если вы находитесь в провинции Аликанте или на Коста-Бланке, подробнее о работе в регионе можно прочитать на странице{" "}
+              <Link href="/ru/avto-iz-germanii/alicante" className="text-[#0B3B73] underline font-semibold">
+                Авто из Германии в Аликанте
+              </Link>.
+            </p>
           </div>
         </section>
       ) : locale === "es" ? (
         <section className="mt-8">
           <div className="text-base leading-relaxed" style={{ textAlign: "justify" }}>
-            Comprar un coche en Alemania y traerlo a España “llave en mano” es un servicio para
-            quienes quieren un vehículo europeo de calidad sin sobreprecio de concesionario, sin
-            horas y días de búsqueda en webs, and sin burocracia ni barrera de idioma. Usted plantea
-            la tarea — nosotros asumimos todo el proceso: desde la búsqueda hasta tener la matrícula
-            española en sus manos.
+            <h2 className="text-xl font-bold text-[#0B3B73] mb-4">
+              Importar coche de Alemania a España llave en mano — trabajamos en Alicante, Valencia, Madrid y Barcelona.
+            </h2>
+            <p>
+              Compramos el vehículo en subasta alemana o en concesionario, lo transportamos a España y lo matriculamos en la DGT. Usted recibe el coche con placas españolas — sin burocracia, sin barrera de idioma y sin sobreprecio de concesionario.
+            </p>
             <br />
+            <p>
+              Traer un coche de Alemania a España es posible mediante subasta, concesionario oficial o compra directa al propietario. El coste final no depende del lugar de compra, sino del proceso completo de matriculación en España. Calculamos todo por anticipado: precio del vehículo + transporte + seguro + ITV + DGT + impuesto de matriculación IEDMT. Sin sorpresas después del pago.
+            </p>
             <br />
-            Y si ya está buscando el coche por su cuenta, también podemos ayudar: verificar el
-            historial, acompañar la operación o encargarnos solo de la parte española — ITV,
-            trámites en la DGT y asistencia con los impuestos y tasas en España.
+            <p>
+              Si se encuentra en la provincia de Alicante o en la Costa Blanca, puede consultar más sobre nuestro trabajo en la región en la página{" "}
+              <Link href="/es/avto-iz-germanii/alicante" className="text-[#0B3B73] underline font-semibold">
+                Coche de Alemania en Alicante
+              </Link>.
+            </p>
             <br />
-            <br />
-            <div className="text-center"><strong>Escríbanos en cualquier etapa.</strong></div>
-            <br />
-            Traer un coche de Alemania a España es posible mediante subasta, concesionario oficial o compra directa. Pero el coste final no depende del lugar de compra, sino del proceso completo de matriculación en España.
-            <br />
-            El presupuesto “llave en mano” incluye: precio del vehículo, posibles comisiones, transporte, seguro, preparación de documentos, ITV, matriculación en la DGT y el impuesto de matriculación (IEDMT). Entre Alemania y España no existen aranceles aduaneros, pero sí gastos obligatorios de registro.
-            <br />
-            <br />
-            <div className="rounded-2xl bg-[#F6F8FC] border p-6">
-              <div className="text-center"><strong>El error más frecuente es</strong></div>
-              comparar el precio en Alemania con el precio en España sin incluir transporte y impuestos. El cálculo correcto es: compra + transporte + impuestos + matriculación = precio real del coche con placas españolas.
+            <div className="rounded-2xl bg-[#F6F8FC] border p-5">
+              <p className="font-bold text-center mb-2">El error más habitual al importar un coche de Alemania</p>
+              <p>Comparar el precio de compra en Alemania con el precio en España sin incluir transporte e impuestos. El cálculo correcto es: precio de compra + transporte + ITV + IEDMT + gestoría = coste real del coche con matrícula española.</p>
             </div>
           </div>
         </section>
       ) : (
         <section className="mt-8">
           <div className="text-base leading-relaxed" style={{ textAlign: "justify" }}>
-            Buying a car in Germany and getting it delivered to Spain turnkey is a service for those
-            who want a high-quality European vehicle without dealer overpricing, without spending
-            hours and days searching websites, and without bureaucracy or a language barrier. You
-            describe your goal — we take over the entire process: from finding the car to Spanish
-            plates in your hands.
+            <h2 className="text-xl font-bold text-[#0B3B73] mb-4">
+              Import a car from Germany to Spain turnkey — we work in Alicante, Valencia, Madrid and Barcelona.
+            </h2>
+            <p>
+              We source the vehicle at a German auction or from a dealer, transport it to Spain and register it with the DGT. You receive a car on Spanish plates — no bureaucracy, no language barrier, no dealer markup.
+            </p>
             <br />
+            <p>
+              Importing a car from Germany to Spain is possible through auction, official dealer or direct private purchase. The final price depends not on where you buy, but on the full cost of registration in Spain. We calculate everything upfront: car price + delivery + insurance + ITV + DGT + registration tax (IEDMT). No surprises after payment.
+            </p>
             <br />
-            And if you are already looking for a car yourself, we can help with that too: check the
-            history, support the deal, or handle only the Spanish part — ITV inspection, DGT
-            registration, and guidance on Spain taxes and fees.
+            <p>
+              If you are based in Alicante province or on the Costa Blanca, you can read more about how we work in the region on the{" "}
+              <Link href="/en/avto-iz-germanii/alicante" className="text-[#0B3B73] underline font-semibold">
+                Car from Germany in Alicante
+              </Link>{" "}page.
+            </p>
             <br />
-            <br />
-            <div className="text-center"><strong>Contact us at any stage.</strong></div>
-            <br />
-            You can import a car from Germany to Spain through an auction, an official dealer, or a private seller. However, the final price is determined not by where you buy the car, but by the total cost of registration in Spain.
-            <br />
-            A turnkey budget includes: the vehicle purchase price, any commission fees, transport, insurance, document preparation, ITV inspection, DGT registration, and the Spanish vehicle registration tax (IEDMT). There are no customs duties between Germany and Spain, but mandatory registration taxes and administrative costs still apply.
-            <br />
-            <br />
-            <div className="rounded-2xl bg-[#F6F8FC] border p-6">
-              <div className="text-center"><strong>The most common mistake is</strong></div>
-              comparing the German purchase price with Spanish market prices without including transport and taxes. The correct calculation is: purchase price + transport + taxes + registration = the real cost of the car on Spanish plates.
+            <div className="rounded-2xl bg-[#F6F8FC] border p-5">
+              <p className="font-bold text-center mb-2">The most common mistake when importing a car from Germany</p>
+              <p>Comparing the purchase price in Germany with Spanish market prices without adding transport and taxes. The correct calculation: purchase price + transport + ITV + IEDMT + gestoría = the real cost of the car on Spanish plates.</p>
             </div>
           </div>
         </section>
@@ -1301,7 +1292,40 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
           SEO BLOCK
       ══════════════════════════════════════════ */}
       <SeoBlock C={C} locale={locale} />
-      <CarCalculatorClient locale={(locale as Locale) || "ru"} />
+
+      {/* ══════════════════════════════════════════
+          КАЛЬКУЛЯТОР → CTA-БАННЕР на /skolko-stoit
+      ══════════════════════════════════════════ */}
+      <section className="mt-8">
+        <div className="rounded-3xl border-2 border-[#0B3B73] bg-[#F6F8FC] p-6 flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div>
+            <p className="font-bold text-[#0B3B73] text-lg mb-1">
+              {locale === "es"
+                ? "¿Quiere calcular el coste total del vehículo?"
+                : locale === "en"
+                ? "Want to calculate the full cost of importing?"
+                : "Хотите рассчитать полную стоимость привоза?"}
+            </p>
+            <p className="text-base text-gray-600">
+              {locale === "es"
+                ? "En una página aparte — calculadora con desglose completo: precio del vehículo, transporte, ITV, IEDMT, DGT."
+                : locale === "en"
+                ? "On a separate page — a calculator with a full breakdown: car price, delivery, ITV, IEDMT, DGT."
+                : "На отдельной странице — калькулятор с разбивкой по всем статьям: цена авто, доставка, ITV, IEDMT, DGT."}
+            </p>
+          </div>
+          <Link
+            href={`/${locale}/avto-iz-germanii/skolko-stoit`}
+            className="flex-shrink-0 rounded-2xl bg-[#0B3B73] px-7 py-4 font-bold text-white text-base shadow-[0_6px_0_rgba(0,0,0,0.2)] transition hover:brightness-110 active:translate-y-1 active:shadow-none whitespace-nowrap"
+          >
+            {locale === "es"
+              ? "Calculadora de costes →"
+              : locale === "en"
+              ? "Cost calculator →"
+              : "Калькулятор стоимости →"}
+          </Link>
+        </div>
+      </section>
 
       {/* ══════════════════════════════════════════
           INTRO
@@ -1381,6 +1405,46 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
               </div>
             </div>
           </details>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          ЧИТАЙТЕ ТАКЖЕ / SEE ALSO / VER TAMBIÉN
+      ══════════════════════════════════════════ */}
+      <section className="mt-10">
+        <p className="text-base font-semibold text-[#0B3B73] mb-3">
+          {locale === "es" ? "Ver también:" : locale === "en" ? "Read also:" : "Читайте также:"}
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {(locale === "es"
+            ? [
+                { href: "/es/avto-iz-germanii/alicante", label: "Coche de Alemania en Alicante" },
+                { href: "/es/avto-iz-germanii/skolko-stoit", label: "¿Cuánto cuesta traer un coche de Alemania?" },
+                { href: "/es/avto-iz-germanii/nalogi-i-dokumenty", label: "Impuestos y documentos para coche de Alemania" },
+                { href: "/es/avto-iz-germanii/registraciya-dgt", label: "Matriculación en la DGT" },
+              ]
+            : locale === "en"
+            ? [
+                { href: "/en/avto-iz-germanii/alicante", label: "Car from Germany in Alicante" },
+                { href: "/en/avto-iz-germanii/skolko-stoit", label: "How much does a car from Germany cost?" },
+                { href: "/en/avto-iz-germanii/nalogi-i-dokumenty", label: "Taxes and documents for a car from Germany" },
+                { href: "/en/avto-iz-germanii/registraciya-dgt", label: "DGT registration in Spain" },
+              ]
+            : [
+                { href: "/ru/avto-iz-germanii/alicante", label: "Авто из Германии в Аликанте" },
+                { href: "/ru/avto-iz-germanii/skolko-stoit", label: "Сколько стоит авто из Германии в Испанию" },
+                { href: "/ru/avto-iz-germanii/nalogi-i-dokumenty", label: "Налоги и документы при покупке авто из Германии" },
+                { href: "/ru/avto-iz-germanii/registraciya-dgt", label: "Регистрация авто через DGT" },
+              ]
+          ).map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-2xl border bg-white px-5 py-3 text-base font-medium text-[#0B3B73] shadow-sm transition hover:bg-[#F6F8FC]"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </section>
 

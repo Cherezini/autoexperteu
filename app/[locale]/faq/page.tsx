@@ -7,6 +7,25 @@ import Image from "next/image";
 type Locale = "ru" | "en" | "es";
 type Step = { t: string; d: string };
 
+/* ─────────────────────────────────────────────────────────────
+   Schema.org FAQPage — строим из данных copy()
+   Вызывается в JSX через dangerouslySetInnerHTML
+───────────────────────────────────────────────────────────── */
+function buildFAQSchema(locale: string) {
+  const C = copy(locale);
+  const allItems: Array<{ t: string; d: string }> = [];
+  C.sections?.forEach((sec: any) => sec.items?.forEach((it: Step) => allItems.push(it)));
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": allItems.slice(0, 20).map(({ t, d }) => ({
+      "@type": "Question",
+      "name": t,
+      "acceptedAnswer": { "@type": "Answer", "text": d },
+    })),
+  });
+}
+
 function copy(locale: string) {
   const L = (locale as Locale) || "ru";
 
@@ -83,23 +102,23 @@ function copy(locale: string) {
   if (L === "es") {
     return {
       hTitle: "Preguntas Frecuentes",
-      pSubtitle: "Respuestas detalladas sobre la selección, compra, impuestos и matriculación de vehículos en España. Todo lo que necesita saber para evitar problemas.",
+      pSubtitle: "Respuestas detalladas sobre la selección, compra, impuestos y matriculación de vehículos en España. Todo lo que necesita saber para evitar problemas.",
       searchPlaceholder: "Buscar por palabra clave (impuesto, Ucrania, entrega)...",
       noResults: "No se encontraron preguntas que coincidan con su búsqueda.",
       sections: [
         {
-          title: "Selección и Compra de Vehículos",
+          title: "Selección y Compra de Vehículos",
           icon: "/icons/loc.png",
           items: [
-            { t: "¿Puedo comprar un coche en España si no soy residente?", d: "Sí, la ley española no restringe la propiedad a extranjeros. Para realizar la compra, un pasaporte válido и un número NIE son suficientes. Sin embargo, necesitará una dirección en España (contrato de alquiler o escritura) para el registro en la oficina de impuestos и la DGT." },
-            { t: "¿Cuánto cuesta el servicio de selección?", d: "Nuestro servicio tiene una tarifa fija de 895 €. No es solo 'buscar enlaces', sino el trabajo de al menos dos gestores: uno monitorea el mercado и selecciona opciones, mientras el segundo realiza negociaciones profundas, verifica la pureza legal и coordina toda la operación." },
-            { t: "¿Qué es mejor en 2026: un coche nuevo o de ocasión?", d: "Un coche de 3 a 5 años es el punto ideal: ya ha pasado el pico de depreciación pero sigue siendo moderno и fiable. Nuestro objetivo es encontrar un coche donde el dueño anterior pagó la caída inicial del precio, mientras usted obtiene un vehículo de alta calidad." },
+            { t: "¿Puedo comprar un coche en España si no soy residente?", d: "Sí, la ley española no restringe la propiedad a extranjeros. Para realizar la compra, un pasaporte válido y un número NIE son suficientes. Sin embargo, necesitará una dirección en España (contrato de alquiler o escritura) para el registro en la oficina de impuestos y la DGT." },
+            { t: "¿Cuánto cuesta el servicio de selección?", d: "Nuestro servicio tiene una tarifa fija de 895 €. No es solo 'buscar enlaces', sino el trabajo de al menos dos gestores: uno monitorea el mercado y selecciona opciones, mientras el segundo realiza negociaciones profundas, verifica la pureza legal y coordina toda la operación." },
+            { t: "¿Qué es mejor en 2026: un coche nuevo o de ocasión?", d: "Un coche de 3 a 5 años es el punto ideal: ya ha pasado el pico de depreciación pero sigue siendo moderno y fiable. Nuestro objetivo es encontrar un coche donde el dueño anterior pagó la caída inicial del precio, mientras usted obtiene un vehículo de alta calidad." },
             { t: "¿Concesionario o particular?", d: "Al comprar en un concesionario oficial, está protegido por ley con al menos 1 año de garantía en defectos ocultos. Los particulares pueden ser más baratos, pero no tiene protección legal tras el pago. Recomendamos concesionarios verificados o plataformas B2B." },
-            { t: "¿Por qué una subasta en Alemania es mejor que un concesionario en España?", d: "Las subastas B2B cerradas ofrecen informes periciales independientes (TÜV/Dekra) que no se pueden falsificar. Esto garantiza un kilometraje honesto и transparencia total. En España, muchos concesionarios locales a menudo ocultan historiales de accidentes." }
+            { t: "¿Por qué una subasta en Alemania es mejor que un concesionario en España?", d: "Las subastas B2B cerradas ofrecen informes periciales independientes (TÜV/Dekra) que no se pueden falsificar. Esto garantiza un kilometraje honesto y transparencia total. En España, muchos concesionarios locales a menudo ocultan historiales de accidentes." }
           ]
         },
         {
-          title: "Matriculación, Importación и Impuestos",
+          title: "Matriculación, Importación y Impuestos",
           icon: "/icons/loc.png",
           items: [
             { t: "¿Cómo se calcula el impuesto de matriculación (IEDMT)?", d: "Este impuesto depende directamente de las emisiones de CO2. Las tasas varían del 0% al 14,75%. Sin embargo, si se muda por residencia, puede obtener una exención del 100% mediante el 'Cambio de Residencia' dentro de los 60 días posteriores a la obtención del TIE." },
@@ -108,20 +127,20 @@ function copy(locale: string) {
           ]
         },
         {
-          title: "Servicio Autoexpert EU и Nuevas Leyes",
+          title: "Servicio Autoexpert EU y Nuevas Leyes",
           icon: "/icons/loc.png",
           items: [
-            { t: "¿En qué regiones de España trabajan?", d: "Realizamos selección de coches en toda España. Sin embargo, para la matriculación и el soporte administrativo completo, nos centramos en los residentes de la Costa Blanca (Alicante) para garantizar nuestra presencia física en las oficinas locales." },
+            { t: "¿En qué regiones de España trabajan?", d: "Realizamos selección de coches en toda España. Sin embargo, para la matriculación y el soporte administrativo completo, nos centramos en los residentes de la Costa Blanca (Alicante) para garantizar nuestra presencia física en las oficinas locales." },
             { t: "¿Ofrecen transporte si el coche se compra en Alemania?", d: "Absolutamente. Organizamos la logística segura mediante portavehículos profesionales o conductores individuales bajo contrato. El vehículo está totalmente asegurado durante el tránsito y recibirá informes fotográficos en cada etapa." },
-            { t: "¿Es obligatorio el dispositivo V16 en 2026?", d: "Sí. Desde el 1 de enero de 2026, los triángulos están prohibidos и reemplazados por balizas V16 con geolocalización que envían automáticamente su posición a la nube DGT 3.0 en caso de accidente." },
-            { t: "¿Es obligatorio el seguro al momento de la compra?", d: "Sí, el seguro debe estar activo desde el primer minuto de propiedad. Conducir o incluso aparcar un coche sin seguro puede conllevar multas de hasta 3000 € и la inmovilización del vehículo. Le ayudamos a emitir la póliza el día del trato." }
+            { t: "¿Es obligatorio el dispositivo V16 en 2026?", d: "Sí. Desde el 1 de enero de 2026, los triángulos están prohibidos y reemplazados por balizas V16 con geolocalización que envían automáticamente su posición a la nube DGT 3.0 en caso de accidente." },
+            { t: "¿Es obligatorio el seguro al momento de la compra?", d: "Sí, el seguro debe estar activo desde el primer minuto de propiedad. Conducir o incluso aparcar un coche sin seguro puede conllevar multas de hasta 3000 € y la inmovilización del vehículo. Le ayudamos a emitir la póliza el día del trato." }
           ]
         },
         {
           title: "Seguros, Digitalización y Seguridad 2026",
           icon: "/icons/loc.png",
           items: [
-            { t: "¿Por qué ha subido el seguro en 2026 и cómo ahorrar?", d: "Las primas han subido un 12-25% en 2026 debido a nuevos impuestos и inflación. Ayudamos a elegir las mejores pólizas (Terceros Ampliado o Todo Riesgo) a través de corredores especializados en expatriados, ahorrando hasta 300 € anuales." },
+            { t: "¿Por qué ha subido el seguro en 2026 y cómo ahorrar?", d: "Las primas han subido un 12-25% en 2026 debido a nuevos impuestos y inflación. Ayudamos a elegir las mejores pólizas (Terceros Ampliado o Todo Riesgo) a través de corredores especializados en expatriados, ahorrando hasta 300 € anuales." },
             { t: "¿Es obligatorio el dispositivo V16 en toda España?", d: "Sí, desde el 1 de enero de 2026 los triángulos están prohibidos en todas las carreteras de alta velocidad. Su coche debe tener una baliza V16 certificada con geolocalización. Verificamos este equipo para evitar multas de 200 euros." },
             { t: "¿Cómo usar el carnet digital en miDGT?", d: "La versión digital en la app miDGT es legalmente equivalente al plástico en 2026. Es especialmente conveniente para nuevos residentes. Le ayudamos con el registro en el sistema Cl@ve para tener todos los documentos en su móvil." }
           ]
@@ -138,9 +157,9 @@ function copy(locale: string) {
           title: "Información para Ciudadanos Ucranianos",
           icon: "/icons/loc.png",
           items: [
-            { t: "¿Debo canjear mi carnet de conducir ucraniano?", d: "Bajo la protección temporal en 2026, los carnets ucranianos son válidos en España hasta marzo de 2027. No es obligatorio canjearlos, pero puede hacerlo voluntariamente sin exámenes para las categorías A и B si planea quedarse a largo plazo." },
-            { t: "¿Cuánto tiempo puedo conducir con matrícula ucraniana?", d: "La regla general es de 6 meses tras obtener la residencia. Recomendamos iniciar la legalización si planea quedarse más de medio año para evitar problemas con la policía и el seguro." },
-            { t: "¿Hay beneficios fiscales para ucranianos?", d: "Sí. Al matricular mediante 'Cambio de Residencia', es elegible para una exención del 100% del IEDMT и aranceles en los primeros 60 días tras obtener el TIE. Somos especialistas en estos casos." }
+            { t: "¿Debo canjear mi carnet de conducir ucraniano?", d: "Bajo la protección temporal en 2026, los carnets ucranianos son válidos en España hasta marzo de 2027. No es obligatorio canjearlos, pero puede hacerlo voluntariamente sin exámenes para las categorías A y B si planea quedarse a largo plazo." },
+            { t: "¿Cuánto tiempo puedo conducir con matrícula ucraniana?", d: "La regla general es de 6 meses tras obtener la residencia. Recomendamos iniciar la legalización si planea quedarse más de medio año para evitar problemas con la policía y el seguro." },
+            { t: "¿Hay beneficios fiscales para ucranianos?", d: "Sí. Al matricular mediante 'Cambio de Residencia', es elegible para una exención del 100% del IEDMT y aranceles en los primeros 60 días tras obtener el TIE. Somos especialistas en estos casos." }
           ]
         }
       ],
@@ -182,7 +201,7 @@ function copy(locale: string) {
         icon: "/icons/loc.png",
         items: [
           { t: "В каких регионах Испании вы предоставляете услуги?", d: "Наш сервис имеет четкую специализацию. Автоподбор мы осуществляем для клиентов в любом регионе Испании — мы находим лучшие машины там, где они есть. Услуги по регистрации и полное административное сопровождение мы предоставляем для жителей Коста-Бланка (Аликанте). Это позволяет нам гарантировать личное присутствие и оперативное решение вопросов в Трафико." },
-          { t: "Осуществляете ли вы доставку авто, если оно куплено в Германии?", d: "Безусловно. Мы организуем безопасную логистику вашего автомобиля до вашего порога в Испании. Эта услуга оформляется отдельным договором. Мы работаем с проверенными перевозчиками (автовозами), а также предоставляем услуги индивидуального перегона. В процессе доставки автомобиль застрахован." },
+          { t: "Осуществляете ли вы доставку авто, если оно куплено в Германии?", d: "Безусловно. Мы организуем безопасную логистику вашего автомобиля до вашего порога в Испании. Эта услуга оформляется отдельным договором. Мы работаем с проверенными перевозчиками (автовозами), а также предоставляем услуги индивидуального перегона. Доставка автовозом занимает от 15 рабочих дней. Весь процесс от заявки до получения испанских номеров — 5–6 недель. В процессе доставки автомобиль застрахован." },
           { t: "Обязателен ли световой маячок V16 в 2026 году?", d: "Да. С 1 января 2026 года в Испании использование треугольников аварийной остановки запрещено — они заменены на электронные маячки V16 с геолокацией. Прибор автоматически передает координаты вашей аварии в облако DGT 3.0." },
           { t: "Нужна ли страховка при покупке автомобиля?", d: "В Испании страховка должна быть активна с первой минуты владения. Отсутствие страховки даже на парковке влечет штрафы от 600 до 3000 евро и эвакуацию авто. Мы помогаем оформить полис в ведущих страховых компаниях Испании (Liberty, Allianz) в день сделки." }
         ]
@@ -270,6 +289,7 @@ export default function FAQPage({ params }: { params: { locale: string } }) {
 
   return (
     <main className="mx-auto w-full max-w-5xl px-4 mt-[8px] pb-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: buildFAQSchema(locale) }} />
       <section className="relative overflow-hidden rounded-3xl border -mt-[15px] mb-10 h-[390px]">
         <Image src="/media/images/fao.png" alt="" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-black/40" />
@@ -343,9 +363,44 @@ export default function FAQPage({ params }: { params: { locale: string } }) {
         <h2 className="text-2xl font-bold">{C.hReady}</h2>
         <p className="mt-3 text-lg">{C.pReady}</p>
         <div className="mt-8">
-          <Link href="/contacto" className="inline-flex items-center justify-center rounded-xl bg-[#0B3B73] px-8 py-4 text-base font-bold text-white shadow-[0_8px_0_rgba(0,0,0,0.20)] hover:brightness-110 active:translate-y-[2px] active:shadow-[0_6px_0_rgba(0,0,0,0.20)]">
+          <Link href={`/${locale}/contacto`} className="inline-flex items-center justify-center rounded-xl bg-[#0B3B73] px-8 py-4 text-base font-bold text-white shadow-[0_8px_0_rgba(0,0,0,0.20)] hover:brightness-110 active:translate-y-[2px] active:shadow-[0_6px_0_rgba(0,0,0,0.20)]">
             {C.btnWhatsApp}
           </Link>
+        </div>
+      </section>
+
+      {/* ЧИТАЙТЕ ТАКЖЕ */}
+      <section className="mt-10">
+        <p className="text-base font-semibold text-[#0B3B73] mb-3">
+          {locale === "es" ? "Ver también:" : locale === "en" ? "Read also:" : "Читайте также:"}
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {[
+            {
+              href: `/${locale}/avto-iz-germanii`,
+              label: locale === "es" ? "Coches de Alemania a España" : locale === "en" ? "Cars from Germany to Spain" : "Авто из Германии в Испанию",
+            },
+            {
+              href: `/${locale}/avto-iz-germanii/skolko-stoit`,
+              label: locale === "es" ? "¿Cuánto cuesta importar un coche?" : locale === "en" ? "How much does a car from Germany cost?" : "Сколько стоит авто из Германии",
+            },
+            {
+              href: `/${locale}/avtopodbor`,
+              label: locale === "es" ? "Selección de coche en España" : locale === "en" ? "Car sourcing in Spain" : "Подбор авто в Испании",
+            },
+            {
+              href: `/${locale}/registro`,
+              label: locale === "es" ? "Matriculación en España" : locale === "en" ? "Vehicle registration in Spain" : "Регистрация авто в Испании",
+            },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-2xl border bg-white px-5 py-3 text-base font-medium text-[#0B3B73] shadow-sm transition hover:bg-[#F6F8FC]"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </section>
     </main>

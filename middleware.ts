@@ -7,15 +7,10 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // ВАЖНО: отдаем sitemap.xml и robots.txt напрямую
   if (pathname === "/sitemap.xml" || pathname === "/robots.txt") {
     return NextResponse.next();
   }
 
-  // Пропускаем:
-  // - API
-  // - служебные папки
-  // - любые файлы с точкой (статические ресурсы)
   if (
     pathname.startsWith("/api") ||
     pathname.startsWith("/_next") ||
@@ -25,14 +20,16 @@ export default function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // ❗ Корень сайта: НЕ редиректим, а делаем rewrite на /ru
   if (pathname === "/") {
     const url = req.nextUrl.clone();
     url.pathname = "/ru";
     return NextResponse.rewrite(url);
   }
 
-  return intlMiddleware(req);
+  const response = intlMiddleware(req);
+  // ← Добавлена одна строка: передаём pathname в layout для hreflang
+  response.headers.set("x-pathname", pathname);
+  return response;
 }
 
 export const config = {

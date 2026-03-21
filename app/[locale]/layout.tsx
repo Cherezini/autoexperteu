@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pathname = heads.get('x-pathname') || `/${params.locale}`;
   const pathWithoutLocale = pathname.replace(/^\/(ru|es|en)/, '') || '';
   return {
-    alternates: generateAlternates(pathWithoutLocale),
+    alternates: generateAlternates(pathWithoutLocale, params.locale),
   };
 }
 

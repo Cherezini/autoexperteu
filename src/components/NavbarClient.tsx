@@ -206,7 +206,7 @@ export default function NavbarClient({
                 <Link
                   key={lang}
                   href={`/${lang}`}
-                  className={locale === lang ? 'text-white underline decoration-2' : 'opacity-40 hover:opacity-100'}
+                  className={locale === lang ? 'text-white underline decoration-2' : 'text-white opacity-40 hover:opacity-100'}
                 >
                   {lang.toUpperCase()}
                 </Link>
@@ -311,7 +311,7 @@ export default function NavbarClient({
                       key={lang}
                       href={`/${lang}`}
                       onClick={() => setIsMenuOpen(false)}
-                      className={locale === lang ? 'text-white font-black' : 'opacity-50'}
+                      className={locale === lang ? 'text-white font-black' : 'text-white opacity-50'}
                     >
                       {lang.toUpperCase()}
                     </Link>

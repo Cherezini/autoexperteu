@@ -1,26 +1,25 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
-type Props = { params: { locale: string } };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { locale: string } }
+): Promise<Metadata> {
   const titles: Record<string, string> = {
-      en: "Is It Cheaper to Buy a Car from Germany to Spain? Save €5,000–€20,000 | AutoexpertEU",
-          es: "¿Es más barato importar un coche de Alemania a España? Ahorra €5.000–€20.000 | AutoexpertEU",
-              ru: "Авто из Германии в Испанию — реальная экономия €5 000–€20 000 | AutoexpertEU",
-                };
-                  const descriptions: Record<string, string> = {
-                      en: "We source cars from closed German B2B auctions — same channels dealers use, without their markup. Full cost calculated upfront: car + transport + ITV + DGT registration. Free analysis.",
-                          es: "Compramos coches en subastas B2B alemanas cerradas — el mismo canal que usan los concesionarios, sin su margen. Coste total calculado por adelantado. Análisis gratuito.",
-                              ru: "Подбираем авто на закрытых B2B-аукционах Германии — те же каналы что используют дилеры, без их наценки. Полная стоимость под ключ заранее. Бесплатный анализ.",
-                                };
-                                  return {
-                                      title: titles[params.locale] || titles.en,
-                                          description: descriptions[params.locale] || descriptions.en,
-                                            };
-                                            }
+    en: "Is It Cheaper to Buy a Car from Germany to Spain? Save €5,000–€20,000 | AutoexpertEU",
+    es: "¿Es más barato importar un coche de Alemania a España? Ahorra €5.000–€20.000 | AutoexpertEU",
+    ru: "Авто из Германии в Испанию — реальная экономия €5 000–€20 000 | AutoexpertEU",
+  };
+  const descriptions: Record<string, string> = {
+    en: "We source cars from closed German B2B auctions. Full cost upfront: car + transport + ITV + DGT. Free analysis.",
+    es: "Compramos coches en subastas B2B alemanas. Coste total calculado. Análisis gratuito.",
+    ru: "Подбираем авто на закрытых B2B-аукционах Германии. Полная стоимость под ключ заранее. Бесплатный анализ.",
+  };
+  return {
+    title: titles[params.locale] || titles.en,
+    description: descriptions[params.locale] || descriptions.en,
+  };
+}
 
-                                            
 /* ─────────────────────────────────────────────────────────────
    TYPES
 ───────────────────────────────────────────────────────────── */

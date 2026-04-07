@@ -1,4 +1,7 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+
 /* ─────────────────────────────────────────────────────────────
    TYPES
 ───────────────────────────────────────────────────────────── */
@@ -791,13 +794,360 @@ function copy(locale: string) {
   };
 }
 
-import type { Metadata } from "next";
+/* ─────────────────────────────────────────────────────────────
+   METADATA (server-side) — per locale
+───────────────────────────────────────────────────────────── */
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const locale = params.locale || "ru";
+  const C = copy(locale);
 
+  const baseUrl = "https://www.autoexperteu.com";
+  const pathname = `/${locale}/avto-iz-germanii`;
 
-/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-   TYPES
-âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
+  // Short, search-friendly description (avoid keyword stuffing)
+  const description =
+    locale === "ru"
+      ? "Как зарегистрировать автомобиль из Германии в Испании. ITV, налоги, документы и регистрация в DGT."
+      : locale === "es"
+        ? "Cómo matricular un coche de Alemania en España. ITV, impuestos y registro en DGT paso a paso."
+        : "How to register a car from Germany in Spain. ITV inspection, taxes and DGT registration process.";
 
+  const titles: Record<string, string> = {
+    ru: "Авто из Германии в Испанию — покупка, доставка и регистрация в DGT",
+    es: "Importar coche de Alemania a España — compra, transporte y matriculación en DGT | AutoexpertEU",
+    en: "Car import from Germany to Spain — purchase, delivery and DGT registration | AutoexpertEU",
+  };
+
+  return {
+    title: titles[locale] ?? "AutoexpertEU",
+    description,
+    alternates: {
+      canonical: `${baseUrl}${pathname}`,
+      languages: {
+        ru: `${baseUrl}/ru/avto-iz-germanii`,
+        es: `${baseUrl}/es/avto-iz-germanii`,
+        en: `${baseUrl}/en/avto-iz-germanii`,
+      },
+    },
+    openGraph: {
+      title: titles[locale] ?? "AutoexpertEU",
+      description,
+      url: `${baseUrl}${pathname}`,
+      siteName: "AutoexpertEU",
+      locale: locale === "ru" ? "ru_RU" : locale === "es" ? "es_ES" : "en_US",
+      type: "website",
+      images: [
+        {
+          url: `${baseUrl}/media/images/avto-germany.jpg`,
+          width: 1200,
+          height: 630,
+          alt: C.heroAlt,
+        },
+      ],
+    },
+  };
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SHARED ACCORDION COMPONENTS (identical style to existing site)
+───────────────────────────────────────────────────────────── */
+function SectionSummary({ title }: { title: string }) {
+  return (
+    <summary
+      className={[
+        "group flex flex-col sm:flex-row items-center justify-center gap-3 rounded-2xl px-6 py-5 text-center",
+        "cursor-pointer select-none bg-white",
+        "shadow-[0_8px_0_rgba(0,0,0,0.12)]",
+        "[&::-webkit-details-marker]:hidden",
+        "relative",
+      ].join(" ")}
+    >
+      <span className="sm:absolute sm:left-5 sm:top-1/2 sm:-translate-y-1/2 flex items-center justify-center order-last sm:order-first w-full sm:w-auto mt-3 sm:mt-0">
+        <img
+          src="/faq-icon.svg"
+          alt=""
+          className="h-10 w-10 object-contain transition-transform duration-700 ease-out group-hover:translate-x-[calc(3.5rem+20px)]"
+        />
+      </span>
+      <span className="text-base font-bold md:text-lg">{title.toUpperCase()}</span>
+      <span className="absolute right-5 top-1/2 -translate-y-1/2 text-[#0B3B73] transition-transform duration-300 group-open/section:rotate-180">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
+          <path d="M8 10l4 4 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </span>
+    </summary>
+  );
+}
+
+function InnerItem({ it, name }: { it: Item; name: string }) {
+  return (
+    <details name={name} className="group/item rounded-xl border bg-white">
+      <summary
+        className={[
+          "flex flex-col sm:flex-row items-center gap-3 px-5 py-4",
+          "cursor-pointer select-none font-semibold text-center sm:text-left",
+          "[&::-webkit-details-marker]:hidden",
+          "relative",
+        ].join(" ")}
+      >
+        <span className="order-last sm:order-first flex items-center justify-center w-full sm:w-auto mt-2 sm:mt-0">
+          <img src="/icon-doc.png" alt="" className="h-20 w-20 shrink-0" />
+        </span>
+        <span className="flex-1">{it.t}</span>
+        <span className="sm:static absolute right-5 top-1/2 sm:translate-y-0 -translate-y-1/2 text-[#0B3B73] transition-transform duration-300 group-open/item:rotate-180">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
+            <path d="M8 10l4 4 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
+      </summary>
+      <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 group-open/item:grid-rows-[1fr]">
+        <div className="overflow-hidden">
+          <div className="px-5 pb-5 text-base opacity-0 transition-opacity duration-300 group-open/item:opacity-100">
+            <div className="whitespace-pre-line text-justify" dangerouslySetInnerHTML={{ __html: it.d }} />
+          </div>
+        </div>
+      </div>
+    </details>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   DEAL CARD (replaces boutique urgency block — same border/bg style)
+───────────────────────────────────────────────────────────── */
+function DealCard({ C }: { C: ReturnType<typeof copy> }) {
+  return (
+    <div className="w-full max-w-2xl rounded-2xl border-2 border-[#0B3B73] bg-[#f8fafc] p-4 sm:p-6 text-center shadow-lg">
+      {/* Header row */}
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
+        <h2 className="text-base sm:text-lg font-bold text-[#0B3B73] uppercase tracking-wider">
+          {C.dealLabel}
+        </h2>
+        <span className="bg-black text-[#00ff00] px-4 py-1 rounded-lg border border-[#00ff00]/30 font-mono text-sm font-bold shadow-[0_0_10px_rgba(0,255,0,0.5)] uppercase tracking-widest animate-pulse [text-shadow:_0_0_8px_#00ff00]">
+          {C.dealBadge}
+        </span>
+      </div>
+      {/* Car info */}
+      <p className="font-bold text-lg text-left">{C.dealCar}</p>
+      <p className="text-sm text-slate-500 text-left mb-4">{C.dealCarSub}</p>
+      {/* Price rows */}
+      <div className="divide-y divide-slate-100 mb-4">
+        {C.dealRows.map((row) => (
+          <div key={row.label} className="flex justify-between items-center py-3 gap-4">
+            <span className="text-sm text-slate-600 text-left">{row.label}</span>
+            <span
+              className={[
+                "font-bold font-mono shrink-0",
+                row.style === "gold" ? "text-[#B8860B] text-xl" : "",
+                row.style === "green"
+                  ? "text-[#00cc00] text-xl [text-shadow:_0_0_5px_rgba(0,204,0,0.5)]"
+                  : "",
+                row.style === "muted" ? "text-slate-400 text-sm" : "",
+                row.style === "bold" ? "text-[#0B3B73] text-lg" : "",
+                row.style === "strike" ? "text-slate-400 line-through text-sm" : "",
+              ].join(" ")}
+            >
+              {row.val}
+            </span>
+          </div>
+        ))}
+      </div>
+      {/* Savings — green scoreboard style */}
+      <div className="flex items-center justify-between rounded-xl bg-[#051005] border border-[#00ff00]/40 px-5 py-3 shadow-[inset_0_0_15px_rgba(0,255,0,0.2)]">
+        <span className="text-sm font-semibold text-[#00cc00] uppercase tracking-wider [text-shadow:_0_0_5px_rgba(0,204,0,0.8)]">
+          {C.dealSaveLabel}
+        </span>
+        <span className="text-2xl font-black text-[#00ff00] font-mono animate-pulse [text-shadow:_0_0_10px_#00ff00]">
+          {C.dealSaveVal}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CASE STUDY CONTENT (rendered inside accordion)
+───────────────────────────────────────────────────────────── */
+function CaseContent({ C }: { C: ReturnType<typeof copy> }) {
+  return (
+    <div className="p-4 sm:p-6 space-y-5">
+      <div>
+        <span className="inline-block bg-[#EFF6FF] text-[#0B3B73] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+          {C.caseTag}
+        </span>
+        <p className="font-bold text-lg">{C.caseCar}</p>
+        <p className="text-sm text-slate-500">{C.caseSpecs}</p>
+      </div>
+      {/* Cost breakdown table */}
+      <div className="rounded-xl border overflow-hidden">
+        <div className="divide-y divide-slate-100">
+          {C.caseCostRows.map((row) => (
+            <div
+              key={row.label}
+              className="flex justify-between items-center px-5 py-3 gap-4 bg-white"
+            >
+              <span className="text-sm text-slate-600">{row.label}</span>
+              <span className="font-semibold text-sm shrink-0">{row.val}</span>
+            </div>
+          ))}
+        </div>
+        {/* Total bar — navy blue, same as buttons */}
+        <div className="flex justify-between items-center px-5 py-4 bg-[#0B3B73] text-white">
+          <span className="font-bold text-sm">{C.caseTotalLabel}</span>
+          <span className="font-black text-xl font-mono">{C.caseTotalVal}</span>
+        </div>
+      </div>
+      {/* Savings highlight */}
+      <div className="rounded-xl bg-red-50 border border-red-200 p-5 text-center">
+        <p className="text-sm text-slate-600 mb-1">{C.caseSaveLabel}</p>
+        <p className="text-5xl font-black text-red-600 font-mono">{C.caseSaveVal}</p>
+        <p className="text-sm text-red-400 mt-1">{C.caseSaveSub}</p>
+      </div>
+      {/* Comparison table */}
+      <div className="rounded-xl border overflow-hidden">
+        <div className="divide-y divide-slate-100">
+          {C.compareRows.map((row) => (
+            <div
+              key={row.label}
+              className={[
+                "flex justify-between items-center px-5 py-3 gap-4 text-sm",
+                row.best ? "bg-[#F0FDF4] font-bold" : "bg-white",
+              ].join(" ")}
+            >
+              <span className={row.best ? "text-[#166534]" : "text-slate-500"}>
+                {row.label}
+              </span>
+              <span
+                className={["font-mono", row.best ? "text-[#166534]" : "text-slate-700"].join(
+                  " ",
+                )}
+              >
+                {row.val}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SEO BLOCK (server-rendered, 600–1000 words RU; concise EN/ES)
+───────────────────────────────────────────────────────────── */
+function SeoBlock({ C, locale }: { C: ReturnType<typeof copy>; locale: string }) {
+  const sections = (C as any).seoSections as
+    | Array<{ h2: string; p: string[]; h3?: Array<{ t: string; p: string[] }> }>
+    | undefined;
+
+  if (!sections || sections.length === 0) return null;
+
+  return (
+    <section className="mt-8">
+      <details name="germany-main" className="group/main rounded-3xl border bg-white overflow-hidden shadow-2xl">
+        {/* ИСПРАВЛЕНИЕ 1: Заменены div на span */}
+        <summary className="cursor-pointer list-none px-4 py-4 sm:px-5 sm:py-5 block">
+          <span className="relative flex items-center justify-center w-full">
+            <span className="flex items-center gap-3 font-bold text-base sm:text-lg text-[#0B3B73] text-center">
+              <img src="/icons/autog.png" alt="" className="h-14 w-14 object-contain" />
+              {((C as any).seoTitle)}
+            </span>
+            <span className="absolute right-0 text-[#0B3B73] transition-transform duration-300 group-open/main:rotate-180">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.5" opacity="0.25"/>
+                <path d="M8 10l4 4 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </span>
+        </summary>
+        <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 group-open/main:grid-rows-[1fr]">
+          <div className="overflow-hidden">
+            <div className="p-4 sm:p-5 space-y-4 text-base leading-relaxed">
+              {sections.map((s, idx) => (
+                <details
+                  key={idx}
+                  name="seo-accordion"
+                  className="group/sub rounded-2xl border bg-white overflow-hidden"
+                >
+                  {/* ИСПРАВЛЕНИЕ 2: Заменены div на span и h3 на span */}
+                  <summary className="list-none cursor-pointer select-none block">
+                    <span className="flex items-center justify-between gap-3 px-4 py-4 sm:px-5 w-full">
+                      <span className="flex items-center gap-3">
+                        <img
+                          src="/icons/autoge.png"
+                          alt=""
+                          className="h-20 w-20 object-contain shrink-0"
+                        />
+                        <span className="text-base sm:text-lg font-bold block">{s.h2}</span>
+                      </span>
+                      <span className="ml-auto text-[#0B3B73] transition-transform duration-300 group-open/sub:rotate-180">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
+                          <path d="M8 10l4 4 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                    </span>
+                  </summary>
+                  <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 group-open/sub:grid-rows-[1fr]">
+                    <div className="overflow-hidden">
+                      <div className="px-4 pb-5 sm:px-5">
+                        <div className="space-y-3">
+                          {s.p.map((pp, i) => (
+                            <p key={i} className="text-justify" dangerouslySetInnerHTML={{ __html: pp }} />
+                          ))}
+                        </div>
+                        {s.h3?.map((sub, j) => (
+                          <div key={j} className="mt-4 space-y-2 rounded-2xl bg-[#F6F8FC] p-4">
+                            <h4 className="font-bold text-center mb-2">{sub.t}</h4>
+                            {sub.p.map((pp, k) => (
+                              <p key={k} className="text-justify">
+                                {pp}
+                              </p>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              ))}
+              <div className="mt-2 rounded-2xl border-2 border-[#0B3B73] bg-[#f8fafc] p-5 text-center">
+                  <p className="font-bold text-2xl text-[#0B3B73]">
+                    {locale === "es" ? "¿Quiere encontrar su coche?" : locale === "en" ? "Looking for your car?" : "Хотите подобрать автомобиль?"}
+                  </p>
+                  <p className="mt-4 text-slate-600 leading-relaxed">
+                    {locale === "es"
+                      ? "Empiece con un análisis gratuito de su solicitud. Póngase en contacto con nosotros para conocer la situación actual del mercado."
+                      : locale === "en"
+                      ? "Start with a free analysis of your request. Contact us to find out what's available on the market right now."
+                      : "Начните с бесплатного анализа Вашего запроса. Свяжитесь с нами, чтобы узнать текущую ситуацию на рынке."}
+                  </p>
+                  <Link
+                    href={`/${locale}/request`}
+                    className="mt-6 inline-flex items-center justify-center rounded-xl bg-[#0B3B73] px-10 py-4 text-lg font-bold text-white shadow-[0_10px_0_rgba(0,0,0,0.3)] hover:brightness-110 active:translate-y-[2px] relative overflow-hidden group"
+                  >
+                    <span className="relative z-10">
+                      {locale === "es" ? "Rellenar formulario de selección" : locale === "en" ? "Fill in the car sourcing form" : "Заполнить форму подбора авто"}
+                    </span>
+                    <div className="absolute top-0 -left-[150%] h-full w-[150%] bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-20 transition-transform duration-[1500ms] group-hover:translate-x-[250%]" />
+                  </Link>
+                </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PAGE
+───────────────────────────────────────────────────────────── */
 export default function GermanyCarPage({ params }: { params: { locale: string } }) {
   const locale = params.locale;
   const C = copy(locale);
@@ -837,9 +1187,9 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFaq) }} />
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââ
-          HERO â identical structure to existing page
-      ââââââââââââââââââââââââââââââââââââââââââ */}
+      {/* ══════════════════════════════════════════
+          HERO — identical structure to existing page
+      ══════════════════════════════════════════ */}
       <section className="relative overflow-hidden rounded-3xl border -mt-[15px] lg:h-[390px]">
         <img
           src="/media/images/avto-germany.jpg"
@@ -857,27 +1207,27 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
         </div>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââ
+      {/* ══════════════════════════════════════════
           TEXT BELOW HERO (RU)
-      ââââââââââââââââââââââââââââââââââââââââââ */}
+      ══════════════════════════════════════════ */}
       {locale === "ru" ? (
         <section className="mt-8">
           <div className="text-base leading-relaxed" style={{ textAlign: "justify" }}>
             <h2 className="text-xl font-bold text-[#0B3B73] mb-4">
-              ÐÐ²ÑÐ¾ Ð¸Ð· ÐÐµÑÐ¼Ð°Ð½Ð¸Ð¸ Ð² ÐÑÐ¿Ð°Ð½Ð¸Ñ Ð¿Ð¾Ð´ ÐºÐ»ÑÑ â ÑÐ°Ð±Ð¾ÑÐ°ÐµÐ¼ Ð² ÐÐ»Ð¸ÐºÐ°Ð½ÑÐµ, ÐÐ°Ð»ÐµÐ½ÑÐ¸Ð¸, ÐÐ°Ð´ÑÐ¸Ð´Ðµ Ð¸ ÐÐ°ÑÑÐµÐ»Ð¾Ð½Ðµ.
+              Авто из Германии в Испанию под ключ — работаем в Аликанте, Валенсии, Мадриде и Барселоне.
             </h2>
             <p>
-              ÐÐ°ÑÐ¾Ð´Ð¸Ð¼ Ð°Ð²ÑÐ¾Ð¼Ð¾Ð±Ð¸Ð»Ñ Ð½Ð° Ð½ÐµÐ¼ÐµÑÐºÐ¾Ð¼ Ð°ÑÐºÑÐ¸Ð¾Ð½Ðµ Ð¸Ð»Ð¸ Ñ Ð´Ð¸Ð»ÐµÑÐ°, Ð´Ð¾ÑÑÐ°Ð²Ð»ÑÐµÐ¼ Ð² ÐÑÐ¿Ð°Ð½Ð¸Ñ Ð¸ ÑÐµÐ³Ð¸ÑÑÑÐ¸ÑÑÐµÐ¼ Ð² DGT. ÐÑ Ð¿Ð¾Ð»ÑÑÐ°ÐµÑÐµ Ð³Ð¾ÑÐ¾Ð²ÑÐ¹ Ð°Ð²ÑÐ¾Ð¼Ð¾Ð±Ð¸Ð»Ñ Ð½Ð° Ð¸ÑÐ¿Ð°Ð½ÑÐºÐ¸Ñ Ð½Ð¾Ð¼ÐµÑÐ°Ñ â Ð±ÐµÐ· Ð±ÑÑÐ¾ÐºÑÐ°ÑÐ¸Ð¸, ÑÐ·ÑÐºÐ¾Ð²Ð¾Ð³Ð¾ Ð±Ð°ÑÑÐµÑÐ° Ð¸ Ð¿ÐµÑÐµÐ¿Ð»Ð°Ñ Ð´Ð¸Ð»ÐµÑÑ.
+              Находим автомобиль на немецком аукционе или у дилера, доставляем в Испанию и регистрируем в DGT. Вы получаете готовый автомобиль на испанских номерах — без бюрократии, языкового барьера и переплат дилеру.
             </p>
             <br />
             <p>
-              ÐÐ²ÑÐ¾ Ð¸Ð· ÐÐµÑÐ¼Ð°Ð½Ð¸Ð¸ Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿ÑÐ¸Ð²ÐµÐ·ÑÐ¸ ÑÐµÑÐµÐ· Ð°ÑÐºÑÐ¸Ð¾Ð½, Ñ Ð¾ÑÐ¸ÑÐ¸Ð°Ð»ÑÐ½Ð¾Ð³Ð¾ Ð´Ð¸Ð»ÐµÑÐ° Ð¸Ð»Ð¸ Ð½Ð°Ð¿ÑÑÐ¼ÑÑ Ñ Ð²Ð»Ð°Ð´ÐµÐ»ÑÑÐ°. ÐÑÐ¾Ð³Ð¾Ð²Ð°Ñ ÑÐµÐ½Ð° Ð·Ð°Ð²Ð¸ÑÐ¸Ñ Ð½Ðµ Ð¾Ñ Ð¼ÐµÑÑÐ° Ð¿Ð¾ÐºÑÐ¿ÐºÐ¸, Ð° Ð¾Ñ Ð¿Ð¾Ð»Ð½Ð¾Ð¹ ÑÑÐ¾Ð¸Ð¼Ð¾ÑÑÐ¸ ÑÐµÐ³Ð¸ÑÑÑÐ°ÑÐ¸Ð¸ Ð² ÐÑÐ¿Ð°Ð½Ð¸Ð¸. ÐÑ ÑÐ°ÑÑÑÐ¸ÑÑÐ²Ð°ÐµÐ¼ Ð²ÑÑ Ð·Ð°ÑÐ°Ð½ÐµÐµ: ÑÐµÐ½Ð° Ð°Ð²ÑÐ¾ + Ð´Ð¾ÑÑÐ°Ð²ÐºÐ° + ÑÑÑÐ°ÑÐ¾Ð²ÐºÐ° + ITV + DGT + Ð½Ð°Ð»Ð¾Ð³ IEDMT. ÐÐ¸ÐºÐ°ÐºÐ¸Ñ ÑÑÑÐ¿ÑÐ¸Ð·Ð¾Ð² Ð¿Ð¾ÑÐ»Ðµ Ð¾Ð¿Ð»Ð°ÑÑ.
+              Авто из Германии можно привезти через аукцион, у официального дилера или напрямую у владельца. Итоговая цена зависит не от места покупки, а от полной стоимости регистрации в Испании. Мы рассчитываем всё заранее: цена авто + доставка + страховка + ITV + DGT + налог IEDMT. Никаких сюрпризов после оплаты.
             </p>
             <br />
             <p className="mt-3 text-base">
-              ÐÑÐ»Ð¸ Ð²Ñ Ð½Ð°ÑÐ¾Ð´Ð¸ÑÐµÑÑ Ð² Ð¿ÑÐ¾Ð²Ð¸Ð½ÑÐ¸Ð¸ ÐÐ»Ð¸ÐºÐ°Ð½ÑÐµ Ð¸Ð»Ð¸ Ð½Ð° ÐÐ¾ÑÑÐ°-ÐÐ»Ð°Ð½ÐºÐµ, Ð¿Ð¾Ð´ÑÐ¾Ð±Ð½ÐµÐµ Ð¾ ÑÐ°Ð±Ð¾ÑÐµ Ð² ÑÐµÐ³Ð¸Ð¾Ð½Ðµ Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿ÑÐ¾ÑÐ¸ÑÐ°ÑÑ Ð½Ð° ÑÑÑÐ°Ð½Ð¸ÑÐµ{" "}
+              Если вы находитесь в провинции Аликанте или на Коста-Бланке, подробнее о работе в регионе можно прочитать на странице{" "}
               <Link href="/ru/avto-iz-germanii/alicante" className="text-[#0B3B73] underline font-semibold">
-                ÐÐ²ÑÐ¾ Ð¸Ð· ÐÐµÑÐ¼Ð°Ð½Ð¸Ð¸ Ð² ÐÐ»Ð¸ÐºÐ°Ð½ÑÐµ
+                Авто из Германии в Аликанте
               </Link>.
             </p>
           </div>
@@ -886,26 +1236,26 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
         <section className="mt-8">
           <div className="text-base leading-relaxed" style={{ textAlign: "justify" }}>
             <h2 className="text-xl font-bold text-[#0B3B73] mb-4">
-              Importar coche de Alemania a EspaÃ±a llave en mano â trabajamos en Alicante, Valencia, Madrid y Barcelona.
+              Importar coche de Alemania a España llave en mano — trabajamos en Alicante, Valencia, Madrid y Barcelona.
             </h2>
             <p>
-              Compramos el vehÃ­culo en subasta alemana o en concesionario, lo transportamos a EspaÃ±a y lo matriculamos en la DGT. Usted recibe el coche con placas espaÃ±olas â sin burocracia, sin barrera de idioma y sin sobreprecio de concesionario.
+              Compramos el vehículo en subasta alemana o en concesionario, lo transportamos a España y lo matriculamos en la DGT. Usted recibe el coche con placas españolas — sin burocracia, sin barrera de idioma y sin sobreprecio de concesionario.
             </p>
             <br />
             <p>
-              Traer un coche de Alemania a EspaÃ±a es posible mediante subasta, concesionario oficial o compra directa al propietario. El coste final no depende del lugar de compra, sino del proceso completo de matriculaciÃ³n en EspaÃ±a. Calculamos todo por anticipado: precio del vehÃ­culo + transporte + seguro + ITV + DGT + impuesto de matriculaciÃ³n IEDMT. Sin sorpresas despuÃ©s del pago.
+              Traer un coche de Alemania a España es posible mediante subasta, concesionario oficial o compra directa al propietario. El coste final no depende del lugar de compra, sino del proceso completo de matriculación en España. Calculamos todo por anticipado: precio del vehículo + transporte + seguro + ITV + DGT + impuesto de matriculación IEDMT. Sin sorpresas después del pago.
             </p>
             <br />
             <p>
-              Si se encuentra en la provincia de Alicante o en la Costa Blanca, puede consultar mÃ¡s sobre nuestro trabajo en la regiÃ³n en la pÃ¡gina{" "}
+              Si se encuentra en la provincia de Alicante o en la Costa Blanca, puede consultar más sobre nuestro trabajo en la región en la página{" "}
               <Link href="/es/avto-iz-germanii/alicante" className="text-[#0B3B73] underline font-semibold">
                 Coche de Alemania en Alicante
               </Link>.
             </p>
             <br />
             <div className="rounded-2xl bg-[#F6F8FC] border p-5">
-              <p className="font-bold text-center mb-2">El error mÃ¡s habitual al importar un coche de Alemania</p>
-              <p>Comparar el precio de compra en Alemania con el precio en EspaÃ±a sin incluir transporte e impuestos. El cÃ¡lculo correcto es: precio de compra + transporte + ITV + IEDMT + gestorÃ­a = coste real del coche con matrÃ­cula espaÃ±ola.</p>
+              <p className="font-bold text-center mb-2">El error más habitual al importar un coche de Alemania</p>
+              <p>Comparar el precio de compra en Alemania con el precio en España sin incluir transporte e impuestos. El cálculo correcto es: precio de compra + transporte + ITV + IEDMT + gestoría = coste real del coche con matrícula española.</p>
             </div>
           </div>
         </section>
@@ -913,10 +1263,10 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
         <section className="mt-8">
           <div className="text-base leading-relaxed" style={{ textAlign: "justify" }}>
             <h2 className="text-xl font-bold text-[#0B3B73] mb-4">
-              Import a car from Germany to Spain turnkey â we work in Alicante, Valencia, Madrid and Barcelona.
+              Import a car from Germany to Spain turnkey — we work in Alicante, Valencia, Madrid and Barcelona.
             </h2>
             <p>
-              We source the vehicle at a German auction or from a dealer, transport it to Spain and register it with the DGT. You receive a car on Spanish plates â no bureaucracy, no language barrier, no dealer markup.
+              We source the vehicle at a German auction or from a dealer, transport it to Spain and register it with the DGT. You receive a car on Spanish plates — no bureaucracy, no language barrier, no dealer markup.
             </p>
             <br />
             <p>
@@ -932,36 +1282,36 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
             <br />
             <div className="rounded-2xl bg-[#F6F8FC] border p-5">
               <p className="font-bold text-center mb-2">The most common mistake when importing a car from Germany</p>
-              <p>Comparing the purchase price in Germany with Spanish market prices without adding transport and taxes. The correct calculation: purchase price + transport + ITV + IEDMT + gestorÃ­a = the real cost of the car on Spanish plates.</p>
+              <p>Comparing the purchase price in Germany with Spanish market prices without adding transport and taxes. The correct calculation: purchase price + transport + ITV + IEDMT + gestoría = the real cost of the car on Spanish plates.</p>
             </div>
           </div>
         </section>
       )}
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââ
+      {/* ══════════════════════════════════════════
           SEO BLOCK
-      ââââââââââââââââââââââââââââââââââââââââââ */}
+      ══════════════════════════════════════════ */}
       <SeoBlock C={C} locale={locale} />
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââ
-          ÐÐÐÐ¬ÐÐ£ÐÐ¯Ð¢ÐÐ  â CTA-ÐÐÐÐÐÐ  Ð½Ð° /skolko-stoit
-      ââââââââââââââââââââââââââââââââââââââââââ */}
+      {/* ══════════════════════════════════════════
+          КАЛЬКУЛЯТОР → CTA-БАННЕР на /skolko-stoit
+      ══════════════════════════════════════════ */}
       <section className="mt-8">
         <div className="rounded-3xl border-2 border-[#0B3B73] bg-[#F6F8FC] p-6 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div>
             <p className="font-bold text-[#0B3B73] text-lg mb-1">
               {locale === "es"
-                ? "Â¿Quiere calcular el coste total del vehÃ­culo?"
+                ? "¿Quiere calcular el coste total del vehículo?"
                 : locale === "en"
                 ? "Want to calculate the full cost of importing?"
-                : "Ð¥Ð¾ÑÐ¸ÑÐµ ÑÐ°ÑÑÑÐ¸ÑÐ°ÑÑ Ð¿Ð¾Ð»Ð½ÑÑ ÑÑÐ¾Ð¸Ð¼Ð¾ÑÑÑ Ð¿ÑÐ¸Ð²Ð¾Ð·Ð°?"}
+                : "Хотите рассчитать полную стоимость привоза?"}
             </p>
             <p className="text-base text-gray-600">
               {locale === "es"
-                ? "En una pÃ¡gina aparte â calculadora con desglose completo: precio del vehÃ­culo, transporte, ITV, IEDMT, DGT."
+                ? "En una página aparte — calculadora con desglose completo: precio del vehículo, transporte, ITV, IEDMT, DGT."
                 : locale === "en"
-                ? "On a separate page â a calculator with a full breakdown: car price, delivery, ITV, IEDMT, DGT."
-                : "ÐÐ° Ð¾ÑÐ´ÐµÐ»ÑÐ½Ð¾Ð¹ ÑÑÑÐ°Ð½Ð¸ÑÐµ â ÐºÐ°Ð»ÑÐºÑÐ»ÑÑÐ¾Ñ Ñ ÑÐ°Ð·Ð±Ð¸Ð²ÐºÐ¾Ð¹ Ð¿Ð¾ Ð²ÑÐµÐ¼ ÑÑÐ°ÑÑÑÐ¼: ÑÐµÐ½Ð° Ð°Ð²ÑÐ¾, Ð´Ð¾ÑÑÐ°Ð²ÐºÐ°, ITV, IEDMT, DGT."}
+                ? "On a separate page — a calculator with a full breakdown: car price, delivery, ITV, IEDMT, DGT."
+                : "На отдельной странице — калькулятор с разбивкой по всем статьям: цена авто, доставка, ITV, IEDMT, DGT."}
             </p>
           </div>
           <Link
@@ -969,26 +1319,26 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
             className="flex-shrink-0 rounded-2xl bg-[#0B3B73] px-7 py-4 font-bold text-white text-base shadow-[0_6px_0_rgba(0,0,0,0.2)] transition hover:brightness-110 active:translate-y-1 active:shadow-none whitespace-nowrap"
           >
             {locale === "es"
-              ? "Calculadora de costes â"
+              ? "Calculadora de costes →"
               : locale === "en"
-              ? "Cost calculator â"
-              : "ÐÐ°Ð»ÑÐºÑÐ»ÑÑÐ¾Ñ ÑÑÐ¾Ð¸Ð¼Ð¾ÑÑÐ¸ â"}
+              ? "Cost calculator →"
+              : "Калькулятор стоимости →"}
           </Link>
         </div>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââ
+      {/* ══════════════════════════════════════════
           INTRO
-      ââââââââââââââââââââââââââââââââââââââââââ */}
+      ══════════════════════════════════════════ */}
       <section className="mt-8">
         <p className="whitespace-pre-line text-base text-justify leading-relaxed">{C.intro}</p>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââ
+      {/* ══════════════════════════════════════════
           ACCORDIONS
-      ââââââââââââââââââââââââââââââââââââââââââ */}
+      ══════════════════════════════════════════ */}
       <section className="mt-10 flex flex-col items-center gap-5">
-        {/* 1 â Why Germany */}
+        {/* 1 — Why Germany */}
         <div className="w-full max-w-3xl">
           <details name="germany-main" className="group/section rounded-2xl border bg-white">
             <SectionSummary title={C.whyTitle} />
@@ -1004,7 +1354,7 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
           </details>
         </div>
 
-        {/* 2 â Process */}
+        {/* 2 — Process */}
         <div className="w-full max-w-3xl">
           <details name="germany-main" className="group/section rounded-2xl border bg-white">
             <SectionSummary title={C.processTitle} />
@@ -1020,12 +1370,12 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
           </details>
         </div>
 
-        {/* Ð ÐµÐ°Ð»ÑÐ½Ð°Ñ ÑÐ´ÐµÐ»ÐºÐ° â Ð¿Ð¾Ð±ÐµÐ´Ð° Ð½Ð° Ð°ÑÐºÑÐ¸Ð¾Ð½Ðµ (Ð¿ÐµÑÐµÐ¼ÐµÑÐµÐ½Ð¾ ÑÑÐ°Ð·Ñ Ð¿Ð¾ÑÐ»Ðµ "ÐºÐ°Ðº ÑÑÐ¾ ÑÐ°Ð±Ð¾ÑÐ°ÐµÑ") */}
+        {/* Реальная сделка — победа на аукционе (перемещено сразу после "как это работает") */}
         <section className="mt-6 flex flex-col items-center">
           <DealCard C={C} />
         </section>
 
-        {/* 4 â Services */}
+        {/* 4 — Services */}
         <div className="w-full max-w-3xl">
           <details name="germany-main" className="group/section rounded-2xl border bg-white">
             <SectionSummary title={C.servicesTitle} />
@@ -1041,7 +1391,7 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
           </details>
         </div>
 
-        {/* 5 â FAQ */}
+        {/* 5 — FAQ */}
         <div className="w-full max-w-3xl">
           <details name="germany-main" className="group/section rounded-2xl border bg-white">
             <SectionSummary title={C.faqTitle} />
@@ -1058,20 +1408,20 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
         </div>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââ
-          Ð§ÐÐ¢ÐÐÐ¢Ð Ð¢ÐÐÐÐ / SEE ALSO / VER TAMBIÃN
-      ââââââââââââââââââââââââââââââââââââââââââ */}
+      {/* ══════════════════════════════════════════
+          ЧИТАЙТЕ ТАКЖЕ / SEE ALSO / VER TAMBIÉN
+      ══════════════════════════════════════════ */}
       <section className="mt-10">
         <p className="text-base font-semibold text-[#0B3B73] mb-3">
-          {locale === "es" ? "Ver tambiÃ©n:" : locale === "en" ? "Read also:" : "Ð§Ð¸ÑÐ°Ð¹ÑÐµ ÑÐ°ÐºÐ¶Ðµ:"}
+          {locale === "es" ? "Ver también:" : locale === "en" ? "Read also:" : "Читайте также:"}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {(locale === "es"
             ? [
                 { href: "/es/avto-iz-germanii/alicante", label: "Coche de Alemania en Alicante" },
-                { href: "/es/avto-iz-germanii/skolko-stoit", label: "Â¿CuÃ¡nto cuesta traer un coche de Alemania?" },
+                { href: "/es/avto-iz-germanii/skolko-stoit", label: "¿Cuánto cuesta traer un coche de Alemania?" },
                 { href: "/es/avto-iz-germanii/nalogi-i-dokumenty", label: "Impuestos y documentos para coche de Alemania" },
-                { href: "/es/avto-iz-germanii/registraciya-dgt", label: "MatriculaciÃ³n en la DGT" },
+                { href: "/es/avto-iz-germanii/registraciya-dgt", label: "Matriculación en la DGT" },
               ]
             : locale === "en"
             ? [
@@ -1081,10 +1431,10 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
                 { href: "/en/avto-iz-germanii/registraciya-dgt", label: "DGT registration in Spain" },
               ]
             : [
-                { href: "/ru/avto-iz-germanii/alicante", label: "ÐÐ²ÑÐ¾ Ð¸Ð· ÐÐµÑÐ¼Ð°Ð½Ð¸Ð¸ Ð² ÐÐ»Ð¸ÐºÐ°Ð½ÑÐµ" },
-                { href: "/ru/avto-iz-germanii/skolko-stoit", label: "Ð¡ÐºÐ¾Ð»ÑÐºÐ¾ ÑÑÐ¾Ð¸Ñ Ð°Ð²ÑÐ¾ Ð¸Ð· ÐÐµÑÐ¼Ð°Ð½Ð¸Ð¸ Ð² ÐÑÐ¿Ð°Ð½Ð¸Ñ" },
-                { href: "/ru/avto-iz-germanii/nalogi-i-dokumenty", label: "ÐÐ°Ð»Ð¾Ð³Ð¸ Ð¸ Ð´Ð¾ÐºÑÐ¼ÐµÐ½ÑÑ Ð¿ÑÐ¸ Ð¿Ð¾ÐºÑÐ¿ÐºÐµ Ð°Ð²ÑÐ¾ Ð¸Ð· ÐÐµÑÐ¼Ð°Ð½Ð¸Ð¸" },
-                { href: "/ru/avto-iz-germanii/registraciya-dgt", label: "Ð ÐµÐ³Ð¸ÑÑÑÐ°ÑÐ¸Ñ Ð°Ð²ÑÐ¾ ÑÐµÑÐµÐ· DGT" },
+                { href: "/ru/avto-iz-germanii/alicante", label: "Авто из Германии в Аликанте" },
+                { href: "/ru/avto-iz-germanii/skolko-stoit", label: "Сколько стоит авто из Германии в Испанию" },
+                { href: "/ru/avto-iz-germanii/nalogi-i-dokumenty", label: "Налоги и документы при покупке авто из Германии" },
+                { href: "/ru/avto-iz-germanii/registraciya-dgt", label: "Регистрация авто через DGT" },
               ]
           ).map((link) => (
             <Link
@@ -1098,9 +1448,9 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
         </div>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââ
-          CTA â identical structure to existing page
-      ââââââââââââââââââââââââââââââââââââââââââ */}
+      {/* ══════════════════════════════════════════
+          CTA — identical structure to existing page
+      ══════════════════════════════════════════ */}
       <section className="mt-10 rounded-3xl border bg-[#F6F8FC] p-4 shadow-xl">
         <div className="rounded-3xl bg-white p-8 shadow-md">
           <h2 className="flex items-center justify-center gap-3 text-2xl font-semibold text-center">
@@ -1120,23 +1470,23 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
         </div>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââ
-          CONTACTS â warm CTA with price and strong buttons
-      ââââââââââââââââââââââââââââââââââââââââââ */}
+      {/* ══════════════════════════════════════════
+          CONTACTS — warm CTA with price and strong buttons
+      ══════════════════════════════════════════ */}
       <section className="mt-10 flex justify-center">
         <div className="w-full max-w-3xl rounded-3xl border-2 border-[#0B3B73] bg-[#f8fafc] p-6 sm:p-8 text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-[#0B3B73] opacity-60 mb-2">
-            {locale === "es" ? "Servicio de selecciÃ³n de vehÃ­culo" : locale === "en" ? "Car sourcing service" : "Ð£ÑÐ»ÑÐ³Ð° Ð¿Ð¾Ð´Ð±Ð¾ÑÐ° Ð°Ð²ÑÐ¾Ð¼Ð¾Ð±Ð¸Ð»Ñ"}
+            {locale === "es" ? "Servicio de selección de vehículo" : locale === "en" ? "Car sourcing service" : "Услуга подбора автомобиля"}
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#0B3B73]">
-            {locale === "es" ? "895 â¬ â anÃ¡lisis gratuito incluido" : locale === "en" ? "895 â¬ â free analysis included" : "895 â¬ â Ð±ÐµÑÐ¿Ð»Ð°ÑÐ½ÑÐ¹ Ð°Ð½Ð°Ð»Ð¸Ð· Ð²ÐºÐ»ÑÑÑÐ½"}
+            {locale === "es" ? "895 € — análisis gratuito incluido" : locale === "en" ? "895 € — free analysis included" : "895 € — бесплатный анализ включён"}
           </h2>
           <p className="mt-3 text-slate-600 leading-relaxed max-w-xl mx-auto">
             {locale === "es"
-              ? "CuÃ©ntenos el coche que busca â verificamos el mercado gratis y le decimos si es posible encontrarlo, cuÃ¡nto costarÃ¡ llave en mano, o le proponemos algo mejor de lo que imagina."
+              ? "Cuéntenos el coche que busca — verificamos el mercado gratis y le decimos si es posible encontrarlo, cuánto costará llave en mano, o le proponemos algo mejor de lo que imagina."
               : locale === "en"
-              ? "Tell us what car you're looking for â we check the market for free and tell you if it can be found, what it will cost turnkey, or suggest something better than you imagined."
-              : "Ð Ð°ÑÑÐºÐ°Ð¶Ð¸ÑÐµ, ÐºÐ°ÐºÐ¾Ð¹ Ð°Ð²ÑÐ¾Ð¼Ð¾Ð±Ð¸Ð»Ñ Ð²Ñ Ð¸ÑÐµÑÐµ â Ð¼Ñ Ð±ÐµÑÐ¿Ð»Ð°ÑÐ½Ð¾ Ð¿ÑÐ¾Ð²ÐµÑÐ¸Ð¼ ÑÑÐ½Ð¾Ðº Ð¸ ÑÐºÐ°Ð¶ÐµÐ¼, ÑÐµÐ°Ð»ÑÐ½Ð¾ Ð»Ð¸ ÐµÐ³Ð¾ Ð½Ð°Ð¹ÑÐ¸, ÑÐºÐ¾Ð»ÑÐºÐ¾ Ð±ÑÐ´ÐµÑ ÑÑÐ¾Ð¸ÑÑ Ð¿Ð¾Ð´ ÐºÐ»ÑÑ, Ð¸Ð»Ð¸ Ð¿ÑÐµÐ´Ð»Ð¾Ð¶Ð¸Ð¼ Ð²Ð°ÑÐ¸Ð°Ð½Ñ Ð»ÑÑÑÐµ, ÑÐµÐ¼ Ð²Ñ Ð¿ÑÐµÐ´Ð¿Ð¾Ð»Ð°Ð³Ð°ÐµÑÐµ."}
+              ? "Tell us what car you're looking for — we check the market for free and tell you if it can be found, what it will cost turnkey, or suggest something better than you imagined."
+              : "Расскажите, какой автомобиль вы ищете — мы бесплатно проверим рынок и скажем, реально ли его найти, сколько будет стоить под ключ, или предложим вариант лучше, чем вы предполагаете."}
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link

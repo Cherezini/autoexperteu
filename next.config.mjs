@@ -8,6 +8,13 @@ const nextConfig = {
 
   async redirects() {
     return [
+            // www -> non-www redirect
+                  {
+                          source: '/:path*',
+                                  has: [{ type: 'host', value: 'www.autoexperteu.com' }],
+                                          destination: 'https://autoexperteu.com/:path*',
+                                          
+        permanent: true                                                        },
       {
         source: '/:locale(ru|es|en)/fao',
         destination: '/:locale/faq',

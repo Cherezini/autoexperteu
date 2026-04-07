@@ -791,15 +791,12 @@ function copy(locale: string) {
   };
 }
 
-import Link from "next/link";
 import type { Metadata } from "next";
 
 
 /* âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
    TYPES
 âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
-type Locale = "ru" | "en" | "es";
-type Item = { t: string; d: string };
 
 export default function GermanyCarPage({ params }: { params: { locale: string } }) {
   const locale = params.locale;

@@ -1,25 +1,32 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { generateAlternates } from '@/lib/seo';
 
-type Props = { children: ReactNode; params: { locale: string } };
+const titles: Record<string, string> = {
+  ru: 'Подбор авто в Испании под ключ — AutoExpert EU | Аликанте',
+  es: 'Selección de coche en España llave en mano — AutoExpert EU | Alicante',
+  en: 'Car sourcing in Spain turnkey — AutoExpert EU | Alicante',
+};
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const titles: Record<string, string> = {
-    ru: 'Podбор авто в Испании под ключ — 10+ вариантов за 30 дней | AutoexpertEU',
-    es: 'Seleccion de coches en Espana — 10+ opciones en 30 dias | AutoexpertEU',
-    en: 'Custom Car Search in Spain — 10+ Verified Options in 30 Days | AutoexpertEU',
-  };
-  const descriptions: Record<string, string> = {
-    ru: 'Подбираем автомобиль в Испании и из Германии. Проверка VIN, залоги, ДТП. DGT под ключ.',
-    es: 'Seleccionamos el coche segun tu solicitud. VIN, embargos. Matriculacion DGT.',
-    en: 'We find cars in Spain and Germany. VIN check, DGT registration turnkey.',
-  };
+const descriptions: Record<string, string> = {
+  ru: 'Профессиональный подбор авто в Испании, Германии и Европе. Проверка, доставка, регистрация в DGT. Аликанте, Коста-Бланка.',
+  es: 'Selección profesional de coche en España, Alemania y Europa. Inspección, entrega, registro en DGT. Alicante, Costa Blanca.',
+  en: 'Professional car sourcing in Spain, Germany and Europe. Inspection, delivery, DGT registration. Alicante, Costa Blanca.',
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const locale = params.locale || 'ru';
   return {
-    title: titles[params.locale] || titles.es,
-    description: descriptions[params.locale] || descriptions.es,
+    title: titles[locale] ?? titles.ru,
+    description: descriptions[locale] ?? descriptions.ru,
+    alternates: generateAlternates('/avtopodbor', locale),
   };
 }
 
-export default function Layout({ children }: Props) {
+export default function AvtopodborLayout({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }

@@ -16,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://www.autoexperteu.com/sitemap.xml",
+    sitemap: "https://autoexperteu.com/sitemap.xml",
   };
 }

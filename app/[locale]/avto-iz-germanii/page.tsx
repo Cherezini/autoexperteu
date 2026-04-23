@@ -805,7 +805,7 @@ export async function generateMetadata({
   const locale = params.locale || "ru";
   const C = copy(locale);
 
-  const baseUrl = "https://www.autoexperteu.com";
+  const baseUrl = "https://autoexperteu.com";
   const pathname = `/${locale}/avto-iz-germanii`;
 
   // Short, search-friendly description (avoid keyword stuffing)

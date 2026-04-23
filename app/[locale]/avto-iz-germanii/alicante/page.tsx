@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   const locale = params.locale || "ru";
-  const baseUrl = "https://www.autoexperteu.com";
+  const baseUrl = "https://autoexperteu.com";
   const pathname = `/${locale}/avto-iz-germanii/alicante`;
 
   const titles: Record<string, string> = {

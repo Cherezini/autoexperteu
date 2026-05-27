@@ -33,6 +33,7 @@ export async function generateMetadata({
         ru: `${baseUrl}/ru/avto-iz-germanii/alicante`,
         es: `${baseUrl}/es/avto-iz-germanii/alicante`,
         en: `${baseUrl}/en/avto-iz-germanii/alicante`,
+        'x-default': `${baseUrl}/ru/avto-iz-germanii/alicante`,
       },
     },
     openGraph: {

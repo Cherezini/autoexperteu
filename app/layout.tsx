@@ -13,7 +13,7 @@ const schemaOrg = {
   description: 'Подбор и импорт автомобилей из Германии в Испанию под ключ. Аукционы B2B, доставка, регистрация в DGT.',
   url: 'https://autoexperteu.com',
   logo: 'https://autoexperteu.com/icon.png',
-  telephone: '+34-XXX-XXX-XXX',
+  telephone: '+34722756695',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Alicante',
@@ -26,11 +26,13 @@ const schemaOrg = {
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
   return (
-    <html lang="es">
+    <html lang={params.locale || 'es'}>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KFJSSCWV3Q"

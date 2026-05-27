@@ -202,9 +202,9 @@ function DrivingIcon() {
   return (
     <span className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
       <span className="inline-block will-change-transform drive-car">
-        <img
+          <img
           src="/sport.png"
-          alt=""
+          alt="Decorative car icon"
           className="h-20 sm:h-24 lg:h-28 w-auto object-contain drop-shadow"
           draggable={false}
         />
@@ -217,7 +217,7 @@ function ItemIcon({ src }: { src: string }) {
   return (
     <img
       src={src}
-      alt=""
+      alt="Car service icon"
       className="h-6 w-6 object-contain shrink-0 opacity-90"
       draggable={false}
     />

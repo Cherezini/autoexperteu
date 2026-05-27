@@ -18,7 +18,7 @@ function buildFAQSchema(locale: string) {
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": allItems.slice(0, 20).map(({ t, d }) => ({
+    "mainEntity": allItems.map(({ t, d }) => ({
       "@type": "Question",
       "name": t,
       "acceptedAnswer": { "@type": "Answer", "text": d },
@@ -330,7 +330,7 @@ export default function FAQPage({ params }: { params: { locale: string } }) {
                   className="flex w-full items-center justify-between gap-3 pl-2 border-l-4 border-[#0B3B73] transition-colors hover:bg-gray-50 py-3 text-left"
                 >
                   <div className="flex items-center gap-4">
-                    <img src={section.icon} alt="" className="h-12 w-12 object-contain" />
+                    <img src={section.icon} alt={`${section.title} icon`} className="h-12 w-12 object-contain" />
                     <h2 className="text-xl font-bold text-[#0B3B73]">
                       {section.title}
                     </h2>

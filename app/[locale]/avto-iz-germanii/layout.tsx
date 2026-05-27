@@ -14,9 +14,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     es: 'Compramos coches en subastas B2B alemanas. Coste total calculado por adelantado. Análisis gratuito.',
     ru: 'Подбираем авто на закрытых B2B-аукционах Германии. Полная стоимость под ключ заранее. Бесплатный анализ.',
   };
+  const locale = params.locale || "ru";
+  const baseUrl = "https://autoexperteu.com";
   return {
-    title: titles[params.locale] || titles.en,
-    description: descriptions[params.locale] || descriptions.en,
+    title: titles[locale] || titles.ru,
+    description: descriptions[locale] || descriptions.ru,
+    alternates: {
+      canonical: `${baseUrl}/${locale}/avto-iz-germanii`,
+      languages: {
+        ru: `${baseUrl}/ru/avto-iz-germanii`,
+        es: `${baseUrl}/es/avto-iz-germanii`,
+        en: `${baseUrl}/en/avto-iz-germanii`,
+        'x-default': `${baseUrl}/ru/avto-iz-germanii`,
+      },
+    },
   };
 }
 

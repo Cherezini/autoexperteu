@@ -831,6 +831,7 @@ export async function generateMetadata({
         ru: `${baseUrl}/ru/avto-iz-germanii`,
         es: `${baseUrl}/es/avto-iz-germanii`,
         en: `${baseUrl}/en/avto-iz-germanii`,
+        'x-default': `${baseUrl}/ru/avto-iz-germanii`,
       },
     },
     openGraph: {
@@ -867,9 +868,9 @@ function SectionSummary({ title }: { title: string }) {
       ].join(" ")}
     >
       <span className="sm:absolute sm:left-5 sm:top-1/2 sm:-translate-y-1/2 flex items-center justify-center order-last sm:order-first w-full sm:w-auto mt-3 sm:mt-0">
-        <img
+          <img
           src="/faq-icon.svg"
-          alt=""
+          alt="FAQ icon"
           className="h-10 w-10 object-contain transition-transform duration-700 ease-out group-hover:translate-x-[calc(3.5rem+20px)]"
         />
       </span>
@@ -896,7 +897,7 @@ function InnerItem({ it, name }: { it: Item; name: string }) {
         ].join(" ")}
       >
         <span className="order-last sm:order-first flex items-center justify-center w-full sm:w-auto mt-2 sm:mt-0">
-          <img src="/icon-doc.png" alt="" className="h-20 w-20 shrink-0" />
+          <img src="/icon-doc.png" alt="Document icon" className="h-20 w-20 shrink-0" />
         </span>
         <span className="flex-1">{it.t}</span>
         <span className="sm:static absolute right-5 top-1/2 sm:translate-y-0 -translate-y-1/2 text-[#0B3B73] transition-transform duration-300 group-open/item:rotate-180">
@@ -1054,7 +1055,7 @@ function SeoBlock({ C, locale }: { C: ReturnType<typeof copy>; locale: string })
         <summary className="cursor-pointer list-none px-4 py-4 sm:px-5 sm:py-5 block">
           <span className="relative flex items-center justify-center w-full">
             <span className="flex items-center gap-3 font-bold text-base sm:text-lg text-[#0B3B73] text-center">
-              <img src="/icons/autog.png" alt="" className="h-14 w-14 object-contain" />
+              <img src="/icons/autog.png" alt="Car import icon" className="h-14 w-14 object-contain" />
               {((C as any).seoTitle)}
             </span>
             <span className="absolute right-0 text-[#0B3B73] transition-transform duration-300 group-open/main:rotate-180">
@@ -1080,7 +1081,7 @@ function SeoBlock({ C, locale }: { C: ReturnType<typeof copy>; locale: string })
                       <span className="flex items-center gap-3">
                         <img
                           src="/icons/autoge.png"
-                          alt=""
+                          alt="German car icon"
                           className="h-20 w-20 object-contain shrink-0"
                         />
                         <span className="text-base sm:text-lg font-bold block">{s.h2}</span>
@@ -1454,7 +1455,7 @@ export default function GermanyCarPage({ params }: { params: { locale: string } 
       <section className="mt-10 rounded-3xl border bg-[#F6F8FC] p-4 shadow-xl">
         <div className="rounded-3xl bg-white p-8 shadow-md">
           <h2 className="flex items-center justify-center gap-3 text-2xl font-semibold text-center">
-            <img src="/icons/go.png" alt="" className="h-16 w-16 drop-shadow-lg" />
+            <img src="/icons/go.png" alt="Go icon" className="h-16 w-16 drop-shadow-lg" />
             {C.hReady}
           </h2>
           <p className="mt-3 text-center leading-relaxed">{C.pReady}</p>

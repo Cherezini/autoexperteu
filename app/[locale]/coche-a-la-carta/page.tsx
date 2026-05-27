@@ -105,7 +105,31 @@ function copy(locale: string) {
 
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const c = copy(params.locale);
-  return { title: c.title, description: c.description };
+  const locale = params.locale || "ru";
+  const baseUrl = "https://autoexperteu.com";
+  const pathname = `/${locale}/coche-a-la-carta`;
+
+  return {
+    title: c.title,
+    description: c.description,
+    alternates: {
+      canonical: `${baseUrl}${pathname}`,
+      languages: {
+        ru: `${baseUrl}/ru/coche-a-la-carta`,
+        es: `${baseUrl}/es/coche-a-la-carta`,
+        en: `${baseUrl}/en/coche-a-la-carta`,
+        'x-default': `${baseUrl}/ru/coche-a-la-carta`,
+      },
+    },
+    openGraph: {
+      title: c.title,
+      description: c.description,
+      url: `${baseUrl}${pathname}`,
+      siteName: "AutoexpertEU",
+      locale: locale === "ru" ? "ru_RU" : locale === "es" ? "es_ES" : "en_US",
+      type: "website",
+    },
+  };
 }
 
 export default function SourcingPage({ params }: { params: { locale: string } }) {

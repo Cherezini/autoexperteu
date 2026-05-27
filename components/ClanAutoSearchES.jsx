@@ -279,6 +279,9 @@ const ClanAutoSearchES = () => {
         throw new Error('Request failed');
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17987311531' });
+
       setSuccess('Solicitud enviada');
 
       // Show success, then return to the autoselección page after 1 second

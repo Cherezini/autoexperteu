@@ -251,7 +251,7 @@ function DrivingIcon({ open }: { open: boolean }) {
   return (
     <span className="lg:absolute lg:left-5 lg:top-1/2 lg:-translate-y-1/2 relative mt-2 block pointer-events-none">
       <span className={["inline-block will-change-transform", "translate-x-0", "drive-car", open ? "translate-x-2" : ""].join(" ")}>
-        <img src="/vip_car.png" alt="" className="h-20 w-auto object-contain drop-shadow" draggable={false} />
+        <img src="/vip_car.png" alt="Car icon" className="h-20 w-auto object-contain drop-shadow" draggable={false} />
       </span>
     </span>
   );
@@ -289,7 +289,7 @@ function DropdownListGroup({
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 z-10">
                   <img
                     src="/icons/strelka_abajo.png"
-                    alt=""
+                    alt="Arrow down"
                     aria-hidden="true"
                     className={"h-7 w-7 transition-transform" + (isOpen ? " rotate-180" : "")}
                   />
@@ -422,7 +422,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         <div className="w-full max-w-3xl">
           <div className="rounded-2xl border bg-white p-5">
             <div className="flex items-center justify-center gap-3">
-              <img src="/icons/attencion.png" alt="" className="h-10 w-10 object-contain drop-shadow shrink-0" />
+              <img src="/icons/attencion.png" alt="Attention icon" className="h-10 w-10 object-contain drop-shadow shrink-0" />
               <h2 className="text-lg font-semibold text-center">Авто в Аликанте</h2>
             </div>
             <p className="mt-4 whitespace-pre-line" style={{ textAlign: "justify" }}>{C.questionsText}</p>
@@ -463,7 +463,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         <div className="w-full max-w-3xl">
           <div className="rounded-2xl border bg-slate-50 p-5 shadow-[0_8px_18px_rgba(15,23,42,0.10)]">
             <div className="flex items-center justify-center gap-3">
-              <img src="/icons/verd.png" alt="" className="h-14 w-14 object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.18)] shrink-0" />
+              <img src="/icons/verd.png" alt="Success icon" className="h-14 w-14 object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.18)] shrink-0" />
               <h2 className="text-lg font-semibold text-center">{C.startTitle}</h2>
             </div>
             <p className="mt-4 whitespace-pre-line" style={{ textAlign: "justify" }}>{C.startText1}</p>

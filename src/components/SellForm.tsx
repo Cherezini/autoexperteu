@@ -10,7 +10,7 @@ function t(locale: string) {
   if (isES) {
     return {
       title: 'Vender mi coche / intercambio',
-      subtitle: 'Rellena el formulario: se enviará un mensaje a WhatsApp de CLAN AUTO.',
+      subtitle: 'Rellena el formulario: se enviará un mensaje a WhatsApp de AutoExpert EU.',
       name: 'Nombre',
       wa: 'WhatsApp',
       city: 'Ciudad / Provincia',
@@ -22,7 +22,7 @@ function t(locale: string) {
       send: 'Enviar por WhatsApp',
       hint: 'Después de enviar el formulario, envía fotos por WhatsApp (3–10 fotos + VIN).',
       buildMsg: (name: string, wa: string, city: string, car: string, year: string, km: string, price: string, note: string) =>
-        `🚗 VENDER / INTERCAMBIO — CLAN AUTO\n` +
+        `🚗 VENDER / INTERCAMBIO — AutoExpert EU\n` +
         `👤 Cliente: ${name}\n` +
         `📞 WA: ${wa}\n` +
         `📍 Ubicación: ${city}\n` +
@@ -38,7 +38,7 @@ function t(locale: string) {
   if (isEN) {
     return {
       title: 'Sell / trade‑in',
-      subtitle: 'Fill in the form: it will send a message to CLAN AUTO WhatsApp.',
+      subtitle: 'Fill in the form: it will send a message to AutoExpert EU WhatsApp.',
       name: 'Name',
       wa: 'WhatsApp',
       city: 'City / Province',
@@ -50,7 +50,7 @@ function t(locale: string) {
       send: 'Send on WhatsApp',
       hint: 'After submitting, send photos via WhatsApp (3–10 photos + VIN).',
       buildMsg: (name: string, wa: string, city: string, car: string, year: string, km: string, price: string, note: string) =>
-        `🚗 SELL / TRADE‑IN — CLAN AUTO\n` +
+        `🚗 SELL / TRADE‑IN — AutoExpert EU\n` +
         `👤 Client: ${name}\n` +
         `📞 WA: ${wa}\n` +
         `📍 Location: ${city}\n` +
@@ -65,7 +65,7 @@ function t(locale: string) {
 
   return {
     title: 'Продать авто / обменять',
-    subtitle: 'Заполните форму — она отправит сообщение в WhatsApp CLAN AUTO.',
+    subtitle: 'Заполните форму — она отправит сообщение в WhatsApp AutoExpert EU.',
     name: 'Имя',
     wa: 'WhatsApp',
     city: 'Город / Провинция',
@@ -77,7 +77,7 @@ function t(locale: string) {
     send: 'Отправить в WhatsApp',
     hint: 'Фото добавьте сообщением в WhatsApp после отправки формы (3–10 фото салон/кузов + VIN).',
     buildMsg: (name: string, wa: string, city: string, car: string, year: string, km: string, price: string, note: string) =>
-      `🚗 ПРОДАТЬ / ОБМЕНЯТЬ АВТО — CLAN AUTO\n` +
+      `🚗 ПРОДАТЬ / ОБМЕНЯТЬ АВТО — AutoExpert EU\n` +
       `👤 Клиент: ${name}\n` +
       `📞 WA клиента: ${wa}\n` +
       `📍 Локация: ${city}\n` +

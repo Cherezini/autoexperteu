@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(curl -I https://autoexperteu.com/es)",
+      "Bash(curl -I https://autoexperteu.com/en)",
+      "Bash(grep -n \"odbor\\\\|[Пп]одбор\\\\|title\\\\|avtopodbor\" /Users/doncherezini/dev/autoexpert/messages/*.json)"
+    ]
+  }
+}

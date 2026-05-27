@@ -20,10 +20,29 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   const locale = params.locale || 'ru';
+  const title = titles[locale] ?? titles.ru;
+  const description = descriptions[locale] ?? descriptions.ru;
+  const baseUrl = "https://autoexperteu.com";
+
   return {
-    title: titles[locale] ?? titles.ru,
-    description: descriptions[locale] ?? descriptions.ru,
-    alternates: generateAlternates('/contacto', locale),
+    title,
+    description,
+    alternates: {
+      ...generateAlternates('/contacto', locale),
+      languages: {
+        ...generateAlternates('/contacto', locale).languages,
+        'x-default': `https://autoexperteu.com/ru/contacto`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${baseUrl}/${locale}/contacto`,
+      siteName: "AutoexpertEU",
+      locale: locale === "ru" ? "ru_RU" : locale === "es" ? "es_ES" : "en_US",
+      type: "website",
+      images: [{ url: `${baseUrl}/media/images/conta.png`, width: 1200, height: 630 }],
+    },
   };
 }
 

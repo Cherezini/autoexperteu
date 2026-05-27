@@ -47,6 +47,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/es/faq",
     "/en/faq",
     "/ru/faq",
+
+    "/es/coche-a-la-carta",
+    "/en/coche-a-la-carta",
+    "/ru/coche-a-la-carta",
   ];
 
   const now = new Date();

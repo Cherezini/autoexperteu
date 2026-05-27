@@ -23,10 +23,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                                   en: 'Professional car selection in Spain and from Germany. VIN check, DGT registration turnkey.',
                                     };
                                     const pathWithoutLocale = pathname.replace(/^\/(ru|es|en)/, '') || '';
+  const locale = params.locale || "ru";
+  const title = titles[locale] || titles.ru;
+  const description = descriptions[locale] || descriptions.ru;
+  const baseUrl = "https://autoexperteu.com";
+
   return {
-        title: titles[params.locale] || titles.es,
-            description: descriptions[params.locale] || descriptions.es,
-            alternates: generateAlternates(pathWithoutLocale, params.locale),
+    title,
+    description,
+    verification: {
+      google: "oC0LphQlUZCTvktVHaJ3S0g4fbGv_n-kJlTmdJ1UXI4",
+    },
+    alternates: {
+      ...generateAlternates(pathWithoutLocale, locale),
+      languages: {
+        ...generateAlternates(pathWithoutLocale, locale).languages,
+        'x-default': `https://autoexperteu.com/ru${pathWithoutLocale}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${baseUrl}${pathname}`,
+      siteName: "AutoexpertEU",
+      locale: locale === "ru" ? "ru_RU" : locale === "es" ? "es_ES" : "en_US",
+      type: "website",
+      images: [{ url: `${baseUrl}/logo_1.png`, width: 512, height: 512 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`${baseUrl}/logo_1.png`],
+    },
   };
 }
 

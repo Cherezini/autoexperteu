@@ -276,6 +276,9 @@ const ClanAutoSearchEN = () => {
 
       if (!res.ok) throw new Error('Request failed');
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17987311531' });
+
       setSuccess('Request sent');
 
       // Redirect back to the avtopodbor page after a short delay

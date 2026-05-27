@@ -214,9 +214,7 @@ export default function Page() {
   const locale = (routeParams?.locale || 'ru') as string;
   const c = copy(locale);
 
-  useEffect(() => {
-    document.title = c.title;
-  }, [c.title]);
+
 
   const waHref = 'https://wa.me/34722756695';
   const phoneHref = 'tel:+34722756695';

@@ -33,6 +33,7 @@ export async function generateMetadata({
         ru: `${baseUrl}/ru/avto-iz-germanii/registraciya-dgt`,
         es: `${baseUrl}/es/avto-iz-germanii/registraciya-dgt`,
         en: `${baseUrl}/en/avto-iz-germanii/registraciya-dgt`,
+        'x-default': `${baseUrl}/ru/avto-iz-germanii/registraciya-dgt`,
       },
     },
     openGraph: {

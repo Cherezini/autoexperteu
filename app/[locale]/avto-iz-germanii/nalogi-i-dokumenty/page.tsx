@@ -33,6 +33,7 @@ export async function generateMetadata({
         ru: `${baseUrl}/ru/avto-iz-germanii/nalogi-i-dokumenty`,
         es: `${baseUrl}/es/avto-iz-germanii/nalogi-i-dokumenty`,
         en: `${baseUrl}/en/avto-iz-germanii/nalogi-i-dokumenty`,
+        'x-default': `${baseUrl}/ru/avto-iz-germanii/nalogi-i-dokumenty`,
       },
     },
     openGraph: {

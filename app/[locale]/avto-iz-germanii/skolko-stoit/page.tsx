@@ -36,6 +36,7 @@ export async function generateMetadata({
         ru: `${baseUrl}/ru/avto-iz-germanii/skolko-stoit`,
         es: `${baseUrl}/es/avto-iz-germanii/skolko-stoit`,
         en: `${baseUrl}/en/avto-iz-germanii/skolko-stoit`,
+        'x-default': `${baseUrl}/ru/avto-iz-germanii/skolko-stoit`,
       },
     },
     openGraph: {
